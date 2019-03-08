@@ -1,21 +1,29 @@
 todoList = {
-  // todos: [],
+  todos: [],
   displayTodos: function() {
     todos.forEach(function(todo) {
-      console.log(todo);
+      if (this.todos.completed === true) {
+        console.log('(x)', todo)
+      } else {
+        console.log('( )', todo)
+      }
     });
   },
   addTodos: function(todo) {
-    todos.push(todo)
-    todoList.displayTodos();
+    todos.push({ todoText: todo,
+               completed: false })
+    this.displayTodos();
   },
   changeTodos: function(position, newTodo) {
     todos[position] = newTodo
-    todoList.displayTodos();
-},
+    this.displayTodos();
+  },
   deleteTodos: function(position) {
     todos.splice(position, 1)
-    todoList.displayTodos();
+    this.displayTodos();
+  },
+  toggleOne: function(position) {
+    todos[position].completed = !todos[position].completed;
+    this.displayTodos();
   }
-
 };
