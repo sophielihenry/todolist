@@ -16,7 +16,7 @@ todoList = {
     this.displayTodos();
   },
   changeTodos: function(position, newTodo) {
-    this.todos[position] = newTodo
+    this.todos[position].todoText = newTodo
     this.displayTodos();
   },
   deleteTodos: function(position) {
@@ -60,7 +60,19 @@ handlers = {
   addTodos: function() {
     var addTodos = document.getElementById('addTodoText')
     todoList.addTodos(addTodos.value)
+  },
+  changeTodos: function() {
+    var changeTodoText = document.getElementById('changeTodoText')
+    var todoTextNumber = document.getElementById('todoTextNumber')
+    todoList.changeTodos(todoTextNumber.valueAsNumber, changeTodoText.value);
+    changeTodoText.value = '';
+    todoTextNumber.value = '';
   }
+
+
+
+
+
 }
 
 
