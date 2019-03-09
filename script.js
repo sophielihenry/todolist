@@ -60,19 +60,28 @@ handlers = {
   addTodos: function() {
     var addTodos = document.getElementById('addTodoText')
     todoList.addTodos(addTodos.value)
+    addTodos.value = '';
   },
   changeTodos: function() {
     var changeTodoText = document.getElementById('changeTodoText')
-    var todoTextNumber = document.getElementById('todoTextNumber')
-    todoList.changeTodos(todoTextNumber.valueAsNumber, changeTodoText.value);
+    var todoTextPosition = document.getElementById('todoTextPosition')
+    todoList.changeTodos(todoTextPosition.valueAsNumber, changeTodoText.value);
+    // clears the bar
     changeTodoText.value = '';
-    todoTextNumber.value = '';
+    todoTextPosition.value = '';
+  },
+  deleteTodos: function() {
+    var deleteTodoPosition = document.getElementById('deleteTodoPosition');
+    todoList.deleteTodos(deleteTodoPosition.valueAsNumber);
+    deleteTodoPosition.value = '';
+  },
+  toggleOne: function() {
+    var togglePosition = document.getElementById('togglePosition');
+    todoList.toggleOne(togglePosition.valueAsNumber)
+  },
+  toggleAll: function() {
+    todoList.toggleAll();
   }
-
-
-
-
-
 }
 
 

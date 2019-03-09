@@ -11,15 +11,13 @@
   <button onclick="handlers.addTodos()">Add a todo</button>
     <input type="text" id='addTodoText'>
   <button onclick="handlers.changeTodos()">Change a todo</button>
-    <input type="number" id='todoTextNumber'>
+    <input type="number" id='todoTextPosition'>
     <input type="text" id='changeTodoText'>
-  <button>Delete a todo</button>
-    <input type="text">
-    <input type="number">
-  <button>Toggle completed</button>
-    <input type="text">
-    <input type="number">
-  <button>Toggle all</button>
+  <button onclick="handlers.deleteTodos()">Delete a todo</button>
+    <input type="number" id='deleteTodoPosition'>
+  <button onclick="handlers.toggleOne()">Toggle completed</button>
+    <input type="number" id='togglePosition'>
+  <button onclick="handlers.toggleAll()">Toggle all</button>
 
 <script src=script.js ></script>
 
