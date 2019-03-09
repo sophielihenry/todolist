@@ -1,7 +1,8 @@
 todoList = {
   todos: [],
   displayTodos: function() {
-    todos.forEach(function(todo) {
+    console.log('My todo list:')
+    this.todos.forEach(function(todo) {
       if (todo.completed === true) {
         console.log('(x)', todo.todoText)
       } else {
@@ -10,44 +11,55 @@ todoList = {
     });
   },
   addTodos: function(todo) {
-    todos.push({ todoText: todo,
+    this.todos.push({ todoText: todo,
                completed: false })
     this.displayTodos();
   },
   changeTodos: function(position, newTodo) {
-    todos[position] = newTodo
+    this.todos[position] = newTodo
     this.displayTodos();
   },
   deleteTodos: function(position) {
-    todos.splice(position, 1)
+    this.todos.splice(position, 1)
     this.displayTodos();
   },
   toggleOne: function(position) {
-    todos[position].completed = !todos[position].completed;
+    this.todos[position].completed = !this.todos[position].completed;
     this.displayTodos();
   },
   toggleAll: function() {
-  var totalTodos = todos.length;
+  var totalTodos = this.todos.length;
   var completedTodos = 0;
 
   // get number of completed todos
   for (var i = 0; i < totalTodos; i++) {
-    if (todos[i].completed === true) {
+    if (this.todos[i].completed === true) {
       completedTodos++
     }
   }
-  // if everything is true make it false
+
+  // if everything is true make it false. toggles all completed to all uncompleted
   if (totalTodos === completedTodos) {
     for (var i = 0; i < totalTodos; i++) {
-      todos[i].completed = false;
+      this.todos[i].completed = false;
     }
-    // otherwise make everything true
+    // otherwise make everything true, if some completed toggles all to completed
   } else {
     for (var i = 0; i < totalTodos; i++) {
-      todos[i].completed = true;
+      this.todos[i].completed = true;
       }
     }
+    this.displayTodos();
+  }
+};
+
+handlers = {
+  displayTodos: function() {
     todoList.displayTodos();
+  },
+  addTodos: function() {
+    var addTodos = document.getElementById('addTodoText')
+    todoList.addTodos(addTodos.value)
   }
 }
 
