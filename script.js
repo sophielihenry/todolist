@@ -30,25 +30,21 @@ todoList = {
   toggleAll: function() {
   var totalTodos = this.todos.length;
   var completedTodos = 0;
-
   // get number of completed todos
-  for (var i = 0; i < totalTodos; i++) {
-    if (this.todos[i].completed === true) {
+    this.todos.forEach(function(todo) {
+     if (todo.completed === true) {
       completedTodos++
     }
-  }
-
+  })
   // if everything is true make it false. toggles all completed to all uncompleted
-  if (totalTodos === completedTodos) {
-    for (var i = 0; i < totalTodos; i++) {
-      this.todos[i].completed = false;
-    }
-    // otherwise make everything true, if some completed toggles all to completed
-  } else {
-    for (var i = 0; i < totalTodos; i++) {
-      this.todos[i].completed = true;
+    this.todos.forEach(function(todo) {
+     if (totalTodos === completedTodos) {
+        todo.completed = false;
+  // otherwise make everything true, if some completed toggles all to completed
+      } else {
+        todo.completed = true;
       }
-    }
+    })
     view.displayTodos();
   }
 };
@@ -87,6 +83,29 @@ view = {
     var todoUl = document.querySelector('ul')
     // sets to 0 so doesnt keep adding extra bullet points again
     todoUl.innerHTML = '';
+
+
+    // todoList.todos.forEach(function(todo) {
+    // // make sure todoLi is inside for loop!
+    //   var todoLi = document.createElement('li')
+
+    //  if (todo.completed === true) {
+    //     todoLi.textContent = '(x)' + " " + todo.todoText + " "
+    //     todoUl.appendChild(todoLi)
+    //     todoLi.id = i
+    //     var createButton = view.createButton();
+    //     todoLi.appendChild(createButton);
+    //     view.tasksToday();
+    //     } else {
+    //     todoLi.textContent = '( )' + " " + todo.todoText + " "
+    //     todoUl.appendChild(todoLi)
+    //     todoLi.id = i
+    //     var createButton = view.createButton();
+    //     todoLi.appendChild(createButton);
+    //     view.tasksToday();
+    //   }
+    // })
+
 
     for (var i=0; i<todoList.todos.length; i++) {
     // make sure todoLi is inside for loop!
@@ -135,7 +154,7 @@ view = {
       if (e.target.className === 'deleteButton') {
           handlers.deleteTodos(deleteButtonId)
           view.tasksToday();
-      }
+         }
     })
   }
 };
