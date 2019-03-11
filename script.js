@@ -114,12 +114,13 @@ view = {
     amountTodos = todoList.todos.length
     var tasksToday = document.querySelector('p')
 
-    if (amountTodos === 0) {
-      tasksToday.textContent = 'you have no tasks to complete!'
+    if (amountTodos > 1) {
+      tasksToday.textContent = 'you have' + " " + amountTodos + " " + 'tasks to complete today'
+
     } else if (amountTodos === 1) {
       tasksToday.textContent = 'you have 1 task to complete today'
     } else {
-      tasksToday.textContent = 'you have' + " " + amountTodos + " " + 'tasks to complete today'
+      tasksToday.textContent = 'you have no tasks to complete!'
     }
   },
   createButton: function() {
@@ -133,11 +134,12 @@ view = {
       var deleteButtonId = e.target.parentNode.id
       if (e.target.className === 'deleteButton') {
           handlers.deleteTodos(deleteButtonId)
-
-        }
+          view.tasksToday();
+      }
     })
   }
 };
+
 
 view.eventListeners();
 
