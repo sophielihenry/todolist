@@ -1,31 +1,31 @@
 todoList = {
   todos: [],
-  displayTodos: function() {
-    console.log('My todo list:')
-    this.todos.forEach(function(todo) {
-      if (todo.completed === true) {
-        console.log('(x)', todo.todoText)
-      } else {
-        console.log('( )', todo.todoText)
-      }
-    });
-  },
+  // displayTodos: function() {
+  //   console.log('My todo list:')
+  //   this.todos.forEach(function(todo) {
+  //     if (todo.completed === true) {
+  //       console.log('(x)', todo.todoText)
+  //     } else {
+  //       console.log('( )', todo.todoText)
+  //     }
+  //   });
+  // },
   addTodos: function(todo) {
     this.todos.push({ todoText: todo,
                completed: false })
-    this.displayTodos();
+    view.displayTodos();
   },
   changeTodos: function(position, newTodo) {
     this.todos[position].todoText = newTodo
-    this.displayTodos();
+    view.displayTodos();
   },
   deleteTodos: function(position) {
     this.todos.splice(position, 1)
-    this.displayTodos();
+    view.displayTodos();
   },
   toggleOne: function(position) {
     this.todos[position].completed = !this.todos[position].completed;
-    this.displayTodos();
+    view.displayTodos();
   },
   toggleAll: function() {
   var totalTodos = this.todos.length;
@@ -49,13 +49,13 @@ todoList = {
       this.todos[i].completed = true;
       }
     }
-    this.displayTodos();
+    view.displayTodos();
   }
 };
 
 handlers = {
   displayTodos: function() {
-    todoList.displayTodos();
+    view.displayTodos();
   },
   addTodos: function() {
     var addTodos = document.getElementById('addTodoText')
@@ -82,7 +82,31 @@ handlers = {
   toggleAll: function() {
     todoList.toggleAll();
   }
+};
+
+view = {
+  displayTodos: function() {
+    var todoUl = document.querySelector('ul')
+    // sets to 0 so doesnt keep adding extra bullet points again
+    todoUl.innerHTML = '';
+
+    for (var i=0; i<todoList.todos.length; i++) {
+    // make sure todoLi is inside for loop!
+      var todoLi = document.createElement('li')
+
+      if (todoList.todos[i].completed === true) {
+        todoLi.textContent = '(x)' + " " + todoList.todos[i].todoText
+        todoUl.appendChild(todoLi)
+      } else {
+        todoLi.textContent = '( )' + " " + todoList.todos[i].todoText
+        todoUl.appendChild(todoLi)
+      }
+    }
+  }
 }
+
+
+
 
 
 
