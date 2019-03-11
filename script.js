@@ -95,14 +95,16 @@ view = {
       var todoLi = document.createElement('li')
 
       if (todoList.todos[i].completed === true) {
-        todoLi.textContent = '(x)' + " " + todoList.todos[i].todoText
+        todoLi.textContent = '(x)' + " " + todoList.todos[i].todoText + " "
         todoUl.appendChild(todoLi)
+        todoLi.id = i
         var createButton = view.createButton();
         todoLi.appendChild(createButton);
         view.tasksToday();
       } else {
-        todoLi.textContent = '( )' + " " + todoList.todos[i].todoText
+        todoLi.textContent = '( )' + " " + todoList.todos[i].todoText + " "
         todoUl.appendChild(todoLi)
+        todoLi.id = i
         var createButton = view.createButton();
         todoLi.appendChild(createButton);
         view.tasksToday();
@@ -119,15 +121,27 @@ view = {
     } else if (amountTodos === 1) {
       tasksToday.textContent = 'you have 1 task to complete today'
     } else {
-      tasksToday.textContent = 'you have' + " " + amountTodos + " " + 'tasks today'
+      tasksToday.textContent = 'you have' + " " + amountTodos + " " + 'tasks to complete today'
     }
   },
   createButton: function() {
     var createButton = document.createElement('button')
     createButton.textContent = 'Delete'
     return createButton;
+  },
+  deleteButton: function() {
+    var deleteButton = document.addEventListener('click', function(e) {
+    console.log(e.target.id)
+
+    })
   }
-}
+
+};
+
+
+
+
+
 
 
 
