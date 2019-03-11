@@ -23,7 +23,7 @@ todoList = {
     this.todos.splice(position, 1)
     view.displayTodos();
   },
-  toggleOne: function(position) {
+  toggleCompleted: function(position) {
     this.todos[position].completed = !this.todos[position].completed;
     view.displayTodos();
   },
@@ -62,6 +62,9 @@ handlers = {
     todoList.addTodos(addTodos.value)
     addTodos.value = '';
   },
+  deleteTodos: function(position) {
+    todoList.deleteTodos(position);
+  },
   changeTodos: function() {
     var changeTodoText = document.getElementById('changeTodoText')
     var todoTextPosition = document.getElementById('todoTextPosition')
@@ -70,9 +73,9 @@ handlers = {
     changeTodoText.value = '';
     todoTextPosition.value = '';
   },
-  toggleOne: function() {
+  toggleCompleted: function() {
     var togglePosition = document.getElementById('togglePosition');
-    todoList.toggleOne(togglePosition.valueAsNumber)
+    todoList.toggleCompleted(togglePosition.valueAsNumber)
   },
   toggleAll: function() {
     todoList.toggleAll();
@@ -125,16 +128,18 @@ view = {
     createButton.className = 'deleteButton'
     return createButton;
   },
-  deleteButton: function() {
+  eventListeners: function() {
     var deleteButton = document.addEventListener('click', function(e) {
-    var deleteButtonId = e.target.parentNode.id
+      var deleteButtonId = e.target.parentNode.id
+      if (e.target.className === 'deleteButton') {
+          handlers.deleteTodos(deleteButtonId)
 
-    if (e.target.className === 'deleteButton') {
-      todoList.deleteTodos(deleteButtonId)
-      }
+        }
     })
   }
 };
+
+view.eventListeners();
 
 
 
