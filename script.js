@@ -97,10 +97,25 @@ view = {
       if (todoList.todos[i].completed === true) {
         todoLi.textContent = '(x)' + " " + todoList.todos[i].todoText
         todoUl.appendChild(todoLi)
+        view.tasksToday();
       } else {
         todoLi.textContent = '( )' + " " + todoList.todos[i].todoText
         todoUl.appendChild(todoLi)
+        view.tasksToday();
+
       }
+    }
+  },
+  tasksToday: function() {
+    amountTodos = todoList.todos.length
+    var tasksToday = document.querySelector('p')
+
+    if (amountTodos === 0) {
+      tasksToday.textContent = 'you have no tasks to complete!'
+    } else if (amountTodos === 1) {
+      tasksToday.textContent = 'you have 1 task to complete today'
+    } else {
+      tasksToday.textContent = 'you have' + " " + amountTodos + " " + 'tasks today'
     }
   }
 }
