@@ -70,11 +70,6 @@ handlers = {
     changeTodoText.value = '';
     todoTextPosition.value = '';
   },
-  deleteTodos: function() {
-    var deleteTodoPosition = document.getElementById('deleteTodoPosition');
-    todoList.deleteTodos(deleteTodoPosition.valueAsNumber);
-    deleteTodoPosition.value = '';
-  },
   toggleOne: function() {
     var togglePosition = document.getElementById('togglePosition');
     todoList.toggleOne(togglePosition.valueAsNumber)
@@ -127,16 +122,24 @@ view = {
   createButton: function() {
     var createButton = document.createElement('button')
     createButton.textContent = 'Delete'
+    createButton.className = 'deleteButton'
     return createButton;
   },
   deleteButton: function() {
     var deleteButton = document.addEventListener('click', function(e) {
-    console.log(e.target.id)
+    var deleteButtonId = e.target.parentNode.id
 
+    if (e.target.className === 'deleteButton') {
+      todoList.deleteTodos(deleteButtonId)
+      }
     })
   }
-
 };
+
+
+
+
+
 
 
 
