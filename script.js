@@ -97,10 +97,14 @@ view = {
       if (todoList.todos[i].completed === true) {
         todoLi.textContent = '(x)' + " " + todoList.todos[i].todoText
         todoUl.appendChild(todoLi)
+        var createButton = view.createButton();
+        todoLi.appendChild(createButton);
         view.tasksToday();
       } else {
         todoLi.textContent = '( )' + " " + todoList.todos[i].todoText
         todoUl.appendChild(todoLi)
+        var createButton = view.createButton();
+        todoLi.appendChild(createButton);
         view.tasksToday();
 
       }
@@ -117,6 +121,11 @@ view = {
     } else {
       tasksToday.textContent = 'you have' + " " + amountTodos + " " + 'tasks today'
     }
+  },
+  createButton: function() {
+    var createButton = document.createElement('button')
+    createButton.textContent = 'Delete'
+    return createButton;
   }
 }
 
