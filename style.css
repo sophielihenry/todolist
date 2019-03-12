@@ -21,9 +21,11 @@
   font-weight:lighter;
   list-style: none;
   border-bottom: 1px solid lightpink;
+  display: flex;
+  justify-content: space-between;
 }
 
-.todoBoxContainer {
+#todoBoxContainer {
   display: flex;
   justify-content: center;
   margin-top: -2.5vh;
@@ -41,20 +43,20 @@
 }
 
 #addTodoText {
-  width: 49.6vw;
+  width: 55.6vw;
   height: 12vh;
   font-size: 2vw;
   font-weight:lighter;
   padding-left:2vw;
 }
 
+/* ADD A TODO INPUT  */
 ::-webkit-input-placeholder {
    color:lightgrey;
    font-size:2vw
    font-weight:lighter;
    padding-left:2vw;
 }
-
 
 /* AMOUNT OF TODOS TODAY */
 #todosToday {
@@ -69,6 +71,20 @@
   font-family:helvetica;
   font-weight:bold;
   text-align: center;
+}
+
+
+/* REMOVES BLUE BORDER FROM ADD TODO BAR */
+input {
+  outline:none;
+}
+
+
+/* DELETE BUTTON */
+.deleteButton {
+  font-size: 2vw;
+  border-color: white;
+  color: peachpuff;
 }
 
 

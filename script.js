@@ -97,7 +97,14 @@ view = {
       var todoLi = document.createElement('li')
 
      if (todo.completed === true) {
-        todoLi.textContent = '(x)' + " " + todo.todoText + " "
+
+        todoLi.innerHTML = '<i class="fas fa-check-circle"></i>'
+        var todoText = document.createTextNode(todo.todoText)
+        todoLi.appendChild(todoText)
+
+
+
+        // todoLi.textContent = '(x)' + " " + todo.todoText + " "
         todoUl.appendChild(todoLi)
     // for loop todoLi.id = i
         todoLi.id = position
@@ -105,7 +112,10 @@ view = {
         todoLi.appendChild(createButton);
         view.todosToday();
         } else {
-        todoLi.textContent = '( )' + " " + todo.todoText + " "
+        todoLi.innerHTML = '<i class="far fa-circle"></i>'
+        var todoText = document.createTextNode(todo.todoText)
+        todoLi.appendChild(todoText)
+        // todoLi.textContent = todo.todoText
         todoUl.appendChild(todoLi)
         todoLi.id = position
         var createButton = view.createButton();
@@ -135,14 +145,18 @@ view = {
   },
   createButton: function() {
     var createButton = document.createElement('button')
-    createButton.textContent = 'Delete'
+    // createButton.textContent = 'Delete'
+    createButton.innerHTML = '<i class="fas fa-times"></i>'
+
+
+
     createButton.className = 'deleteButton'
     return createButton;
   },
   eventListeners: function() {
     var deleteButton = document.addEventListener('click', function(e) {
-      var deleteButtonId = e.target.parentNode.id
-      if (e.target.className === 'deleteButton') {
+      var deleteButtonId = e.target.parentNode.parentNode.id
+      if (e.target.parentNode.className === 'deleteButton') {
           handlers.deleteTodos(deleteButtonId)
           view.todosToday();
          }
@@ -158,7 +172,6 @@ view = {
 
 
 view.eventListeners();
-
 
 
 

@@ -3,19 +3,15 @@
 <head>
   <title>Todo list</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 
 <body>
   <h1 class="todoListHeading">Todo List</h1>
-<!--   <button onclick="handlers.displayTodos()">Display all todos</button>
- -->
   <button onclick="handlers.toggleAll()">Toggle all</button>
-
   <button onclick="handlers.changeTodos()">Change a todo</button>
     <input type="number" id='todoTextPosition'>
     <input type="text" id='changeTodoText'>
-<!--   <button onclick="handlers.deleteTodos()">Delete a todo</button>
-    <input type="number" id='deleteTodoPosition'> -->
   <button onclick="handlers.toggleCompleted()">Toggle completed</button>
     <input type="number" id='togglePosition'>
 
@@ -24,13 +20,13 @@
 
   <div class="todoCard">
     <div class="addTodoBar">
-      <button onclick="handlers.addTodos()">Add a todo</button>
-          <input type="text" id='addTodoText' placeholder="add in a new todo">
+     <input type="text" id='addTodoText' placeholder="add in a new todo">
     </div>
-      <div class="todoBoxContainer">
-        <ul id=todoBox>
-        </ul>
-      </div>
+    <div id="todoBoxContainer">
+
+      <ul id=todoBox>
+      </ul>
+    </div>
   </div>
 
     <p id="todosToday">
