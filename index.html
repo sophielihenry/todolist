@@ -10,8 +10,7 @@
 <!--   <button onclick="handlers.displayTodos()">Display all todos</button>
  -->
   <button onclick="handlers.toggleAll()">Toggle all</button>
-  <button onclick="handlers.addTodos()">Add a todo</button>
-    <input type="text" id='addTodoText'>
+
   <button onclick="handlers.changeTodos()">Change a todo</button>
     <input type="number" id='todoTextPosition'>
     <input type="text" id='changeTodoText'>
@@ -20,13 +19,22 @@
   <button onclick="handlers.toggleCompleted()">Toggle completed</button>
     <input type="number" id='togglePosition'>
 
-  <ul id=todoBox>
-  </ul>
-
-  <p id="todosToday">
+  <p id="noValue">
   </p>
 
-<script src=script.js ></script>
+  <div class="todoCard">
+      <button onclick="handlers.addTodos()">Add a todo</button>
+          <input type="text" id='addTodoText'>
+      <div class="todoBoxContainer">
+        <ul id=todoBox>
+        </ul>
+      </div>
+  </div>
+
+    <p id="todosToday">
+    </p>
+
+  <script src=script.js ></script>
 
 </body>
 </html>

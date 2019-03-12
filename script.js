@@ -55,8 +55,16 @@ handlers = {
   },
   addTodos: function() {
     var addTodos = document.getElementById('addTodoText')
-    todoList.addTodos(addTodos.value)
-    addTodos.value = '';
+
+    if (addTodos.value === '') {
+      var noAddValue = document.getElementById('noValue');
+      noAddValue.textContent = 'please add in a todo!'
+    } else {
+     var noAddValue = document.getElementById('noValue');
+      noAddValue.textContent = ' '
+      todoList.addTodos(addTodos.value)
+      addTodos.value = '';
+    }
   },
   deleteTodos: function(position) {
     todoList.deleteTodos(position);
@@ -95,18 +103,18 @@ view = {
         todoLi.id = position
         var createButton = view.createButton();
         todoLi.appendChild(createButton);
-        view.tasksToday();
+        view.todosToday();
         } else {
         todoLi.textContent = '( )' + " " + todo.todoText + " "
         todoUl.appendChild(todoLi)
         todoLi.id = position
         var createButton = view.createButton();
         todoLi.appendChild(createButton);
-        view.tasksToday();
+        view.todosToday();
       }
     })
   },
-  tasksToday: function() {
+  todosToday: function() {
   // count how many completed todos there are
     completedTodos = 0;
     todoList.todos.forEach(function(todo) {
@@ -115,14 +123,14 @@ view = {
       }
     })
 
-    var tasksToday = document.querySelector('p')
+    var todosToday = document.getElementById('todosToday')
     if (completedTodos > 1) {
-      tasksToday.textContent = 'you have' + " " + completedTodos + " " + 'tasks to complete today'
+      todosToday.textContent = 'you have' + " " + completedTodos + " " + 'tasks to complete today'
 
     } else if (completedTodos === 1) {
-      tasksToday.textContent = 'you have 1 task to complete today'
+      todosToday.textContent = 'you have 1 task to complete today'
     } else {
-      tasksToday.textContent = 'congratulations! you have no tasks to complete!'
+      todosToday.textContent = 'congratulations! you have no tasks to complete!'
     }
   },
   createButton: function() {
@@ -136,7 +144,7 @@ view = {
       var deleteButtonId = e.target.parentNode.id
       if (e.target.className === 'deleteButton') {
           handlers.deleteTodos(deleteButtonId)
-          view.tasksToday();
+          view.todosToday();
          }
     })
   }

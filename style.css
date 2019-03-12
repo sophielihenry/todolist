@@ -7,20 +7,46 @@
   font-size:4vw;
 }
 
+/* TO DO BOX */
 #todoBox {
   border:1px solid lightgrey;
+  width:60vw;
+  padding: 0 4vw 3vw 4vw;
 }
 
 #todoBox li {
   font-family:helvetica;
   font-size:2vw;
-  padding:2vw 0 3vw 3vw;
+  padding:2vw 0 1vw 3vw;
   font-weight:lighter;
+  list-style: none;
+  border-bottom: 1px solid lightpink;
 }
 
+.todoBoxContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.todoCard {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+}
+
+/* AMOUNT OF TODOS TODAY */
 #todosToday {
   font-family:helvetica;
   font-size:1.5vw;
   text-align:center;
   font-weight:lighter;
 }
+
+/* PLEASE INPUT A VALUE */
+#noValue {
+  font-family:helvetica;
+  font-weight:bold;
+  text-align: center;
+}
+
+
