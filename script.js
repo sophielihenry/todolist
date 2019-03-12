@@ -36,11 +36,11 @@ todoList = {
       completedTodos++
     }
   })
-  // if everything is true make it false. toggles all completed to all uncompleted
+  // if everything is true make it false: toggles all completed to all uncompleted
     this.todos.forEach(function(todo) {
-     if (totalTodos === completedTodos) {
+      if (totalTodos === completedTodos) {
         todo.completed = false;
-  // otherwise make everything true, if some completed toggles all to completed
+  // otherwise make everything true: if some completed toggles all to completed
       } else {
         todo.completed = true;
       }
@@ -84,62 +84,48 @@ view = {
     // sets to 0 so doesnt keep adding extra bullet points again
     todoUl.innerHTML = '';
 
-
-    // todoList.todos.forEach(function(todo) {
-    // // make sure todoLi is inside for loop!
-    //   var todoLi = document.createElement('li')
-
-    //  if (todo.completed === true) {
-    //     todoLi.textContent = '(x)' + " " + todo.todoText + " "
-    //     todoUl.appendChild(todoLi)
-    //     todoLi.id = i
-    //     var createButton = view.createButton();
-    //     todoLi.appendChild(createButton);
-    //     view.tasksToday();
-    //     } else {
-    //     todoLi.textContent = '( )' + " " + todo.todoText + " "
-    //     todoUl.appendChild(todoLi)
-    //     todoLi.id = i
-    //     var createButton = view.createButton();
-    //     todoLi.appendChild(createButton);
-    //     view.tasksToday();
-    //   }
-    // })
-
-
-    for (var i=0; i<todoList.todos.length; i++) {
+    todoList.todos.forEach(function(todo, position) {
     // make sure todoLi is inside for loop!
       var todoLi = document.createElement('li')
 
-      if (todoList.todos[i].completed === true) {
-        todoLi.textContent = '(x)' + " " + todoList.todos[i].todoText + " "
+     if (todo.completed === true) {
+        todoLi.textContent = '(x)' + " " + todo.todoText + " "
         todoUl.appendChild(todoLi)
-        todoLi.id = i
+    // for loop todoLi.id = i
+        todoLi.id = position
         var createButton = view.createButton();
         todoLi.appendChild(createButton);
         view.tasksToday();
-      } else {
-        todoLi.textContent = '( )' + " " + todoList.todos[i].todoText + " "
+        } else {
+        todoLi.textContent = '( )' + " " + todo.todoText + " "
         todoUl.appendChild(todoLi)
-        todoLi.id = i
+        todoLi.id = position
         var createButton = view.createButton();
         todoLi.appendChild(createButton);
         view.tasksToday();
-
       }
-    }
+    })
   },
   tasksToday: function() {
-    amountTodos = todoList.todos.length
+    // count how many completed todos there are
+    completedTodos = 0;
+
+    todoList.todos.forEach(function(todo) {
+      if (todo.completed === false) {
+        completedTodos++
+      }
+
+    })
+
     var tasksToday = document.querySelector('p')
+// CHANGE BECAUSE DOESNTMAKE SENSE!!! BASED ON COMPLETED TRUE
+    if (completedTodos > 1) {
+      tasksToday.textContent = 'you have' + " " + completedTodos + " " + 'tasks to complete today'
 
-    if (amountTodos > 1) {
-      tasksToday.textContent = 'you have' + " " + amountTodos + " " + 'tasks to complete today'
-
-    } else if (amountTodos === 1) {
+    } else if (completedTodos === 1) {
       tasksToday.textContent = 'you have 1 task to complete today'
     } else {
-      tasksToday.textContent = 'you have no tasks to complete!'
+      tasksToday.textContent = 'congratulations! you have no tasks to complete!'
     }
   },
   createButton: function() {
