@@ -10,7 +10,7 @@
 /* TO DO BOX */
 #todoBox {
   border:1px solid lightgrey;
-  width:60vw;
+  width:50vw;
   padding: 0 4vw 3vw 4vw;
 }
 
@@ -26,13 +26,35 @@
 .todoBoxContainer {
   display: flex;
   justify-content: center;
+  margin-top: -2.5vh;
 }
 
 .todoCard {
   display: flex;
   flex-direction: column;
-  width: 60vw;
 }
+
+.addTodoBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#addTodoText {
+  width: 49.6vw;
+  height: 12vh;
+  font-size: 2vw;
+  font-weight:lighter;
+  padding-left:2vw;
+}
+
+::-webkit-input-placeholder {
+   color:lightgrey;
+   font-size:2vw
+   font-weight:lighter;
+   padding-left:2vw;
+}
+
 
 /* AMOUNT OF TODOS TODAY */
 #todosToday {

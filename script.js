@@ -58,7 +58,7 @@ handlers = {
 
     if (addTodos.value === '') {
       var noAddValue = document.getElementById('noValue');
-      noAddValue.textContent = 'please add in a todo!'
+      noAddValue.textContent = 'please add in a todo'
     } else {
      var noAddValue = document.getElementById('noValue');
       noAddValue.textContent = ' '
@@ -146,6 +146,12 @@ view = {
           handlers.deleteTodos(deleteButtonId)
           view.todosToday();
          }
+    })
+
+    var enterToAdd = document.addEventListener('keyup', function(event) {
+      if (event.keyCode === 13) {
+        handlers.addTodos();
+      }
     })
   }
 };
