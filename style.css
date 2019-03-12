@@ -1,0 +1,26 @@
+/* Styles go here */
+
+.todoListHeading {
+  font-family:helvetica;
+  font-weight:lighter;
+  text-align:center;
+  font-size:4vw;
+}
+
+#todoBox {
+  border:1px solid lightgrey;
+}
+
+#todoBox li {
+  font-family:helvetica;
+  font-size:2vw;
+  padding:2vw 0 3vw 3vw;
+  font-weight:lighter;
+}
+
+#todosToday {
+  font-family:helvetica;
+  font-size:1.5vw;
+  text-align:center;
+  font-weight:lighter;
+}

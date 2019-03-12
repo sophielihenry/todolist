@@ -2,15 +2,14 @@
 <html>
 <head>
   <title>Todo list</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <h1>Todo List</h1>
-
+  <h1 class="todoListHeading">Todo List</h1>
 <!--   <button onclick="handlers.displayTodos()">Display all todos</button>
  -->
-
-   <button onclick="handlers.toggleAll()">Toggle all</button>
+  <button onclick="handlers.toggleAll()">Toggle all</button>
   <button onclick="handlers.addTodos()">Add a todo</button>
     <input type="text" id='addTodoText'>
   <button onclick="handlers.changeTodos()">Change a todo</button>
@@ -21,18 +20,13 @@
   <button onclick="handlers.toggleCompleted()">Toggle completed</button>
     <input type="number" id='togglePosition'>
 
-
-  <ul id=todoUl>
-
+  <ul id=todoBox>
   </ul>
 
-  <p>
-
+  <p id="todosToday">
   </p>
 
-
 <script src=script.js ></script>
-
 
 </body>
 </html>

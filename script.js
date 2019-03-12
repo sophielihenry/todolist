@@ -107,18 +107,15 @@ view = {
     })
   },
   tasksToday: function() {
-    // count how many completed todos there are
+  // count how many completed todos there are
     completedTodos = 0;
-
     todoList.todos.forEach(function(todo) {
       if (todo.completed === false) {
         completedTodos++
       }
-
     })
 
     var tasksToday = document.querySelector('p')
-// CHANGE BECAUSE DOESNTMAKE SENSE!!! BASED ON COMPLETED TRUE
     if (completedTodos > 1) {
       tasksToday.textContent = 'you have' + " " + completedTodos + " " + 'tasks to complete today'
 
