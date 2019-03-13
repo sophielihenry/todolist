@@ -8,24 +8,33 @@
 
 <body>
   <h1 class="todoListHeading">Todo List</h1>
-  <button onclick="handlers.toggleAll()">Toggle all</button>
   <button onclick="handlers.changeTodos()">Change a todo</button>
     <input type="number" id='todoTextPosition'>
     <input type="text" id='changeTodoText'>
-  <button onclick="handlers.toggleCompleted()">Toggle completed</button>
-    <input type="number" id='togglePosition'>
+<!--   <button onclick="handlers.toggleCompleted()">Toggle completed</button>
+    <input type="checkbox" id='togglePosition'> -->
 
   <p id="noValue">
   </p>
 
+
+
+
   <div class="todoCard">
-    <div class="addTodoBar">
-     <input type="text" id='addTodoText' placeholder="add in a new todo">
+    <div class="toggleAddBar">
+<!--       <div onclick="handlers.toggleAll()" class="toggleAll">l</div>
+ -->      <div class="addTodoBar">
+       <input type="text" id='addTodoText' placeholder="add in a new todo" >
+
+
+      </div>
     </div>
+
     <div id="todoBoxContainer">
 
       <ul id=todoBox>
       </ul>
+
     </div>
   </div>
 

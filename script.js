@@ -78,8 +78,7 @@ handlers = {
     todoTextPosition.value = '';
   },
   toggleCompleted: function() {
-    var togglePosition = document.getElementById('togglePosition');
-    todoList.toggleCompleted(togglePosition.valueAsNumber)
+    todoList.toggleCompleted()
   },
   toggleAll: function() {
     todoList.toggleAll();
@@ -95,29 +94,25 @@ view = {
     todoList.todos.forEach(function(todo, position) {
     // make sure todoLi is inside for loop!
       var todoLi = document.createElement('li')
+      var label = document.createElement('label')
 
      if (todo.completed === true) {
-
         todoLi.innerHTML = '<i class="fas fa-check-circle"></i>'
-        var todoText = document.createTextNode(todo.todoText)
-        todoLi.appendChild(todoText)
-
-
-
-        // todoLi.textContent = '(x)' + " " + todo.todoText + " "
-        todoUl.appendChild(todoLi)
-    // for loop todoLi.id = i
+        todoLi.className = 'toggle'
+        label.textContent = todo.todoText
         todoLi.id = position
+        todoLi.appendChild(label)
+        todoUl.appendChild(todoLi)
         var createButton = view.createButton();
         todoLi.appendChild(createButton);
         view.todosToday();
         } else {
         todoLi.innerHTML = '<i class="far fa-circle"></i>'
-        var todoText = document.createTextNode(todo.todoText)
-        todoLi.appendChild(todoText)
-        // todoLi.textContent = todo.todoText
-        todoUl.appendChild(todoLi)
+        todoLi.className = 'toggle'
+        label.textContent = todo.todoText
         todoLi.id = position
+        todoLi.appendChild(label)
+        todoUl.appendChild(todoLi)
         var createButton = view.createButton();
         todoLi.appendChild(createButton);
         view.todosToday();
@@ -147,24 +142,29 @@ view = {
     var createButton = document.createElement('button')
     // createButton.textContent = 'Delete'
     createButton.innerHTML = '<i class="fas fa-times"></i>'
-
-
-
     createButton.className = 'deleteButton'
     return createButton;
   },
   eventListeners: function() {
-    var deleteButton = document.addEventListener('click', function(e) {
-      var deleteButtonId = e.target.parentNode.parentNode.id
-      if (e.target.parentNode.className === 'deleteButton') {
+    // click to delete button
+    var deleteButton = document.addEventListener('click', function(event) {
+      var deleteButtonId = event.target.parentNode.parentNode.id
+      if (event.target.parentNode.className === 'deleteButton') {
           handlers.deleteTodos(deleteButtonId)
           view.todosToday();
          }
     })
-
+    // enter to add todo
     var enterToAdd = document.addEventListener('keyup', function(event) {
       if (event.keyCode === 13) {
         handlers.addTodos();
+      }
+    })
+    // click to toggle
+    var clickToToggle = document.addEventListener('click', function(event) {
+      var toggleId = event.target.parentNode.id
+      if (event.target.parentNode.className === 'toggle') {
+        todoList.toggleCompleted(toggleId);
       }
     })
   }
