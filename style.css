@@ -20,13 +20,16 @@
   padding:2vw 0 1vw 3vw;
   font-weight:lighter;
   list-style: none;
-  border-bottom: 1px solid lightpink;
+  border-bottom: 1px solid lavender;
   display: flex;
   align-items: center;
 }
 
 #todoBox li label {
-  padding-left: 4vw;
+    margin-left: 4vw;
+    width: 29vw;
+    padding: 1.5vw 0 1.5vw 0;
+    outline:none;
 }
 
 #todoBoxContainer {

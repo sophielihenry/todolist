@@ -70,12 +70,11 @@ handlers = {
     todoList.deleteTodos(position);
   },
   changeTodos: function() {
-    var changeTodoText = document.getElementById('changeTodoText')
-    var todoTextPosition = document.getElementById('todoTextPosition')
-    todoList.changeTodos(todoTextPosition.valueAsNumber, changeTodoText.value);
+    // var label = document.querySelector('label')
+    // var changeTodoText = label.textContent
+
+    // todoList.changeTodos(0, changeTodoText);
     // clears the bar
-    changeTodoText.value = '';
-    todoTextPosition.value = '';
   },
   toggleCompleted: function() {
     todoList.toggleCompleted()
@@ -103,7 +102,7 @@ view = {
         todoLi.id = position
         todoLi.appendChild(label)
         todoUl.appendChild(todoLi)
-        var createButton = view.createButton();
+        var createButton = view.createDeleteButton();
         todoLi.appendChild(createButton);
         view.todosToday();
         } else {
@@ -113,7 +112,7 @@ view = {
         todoLi.id = position
         todoLi.appendChild(label)
         todoUl.appendChild(todoLi)
-        var createButton = view.createButton();
+        var createButton = view.createDeleteButton();
         todoLi.appendChild(createButton);
         view.todosToday();
       }
@@ -138,12 +137,18 @@ view = {
       todosToday.textContent = 'congratulations! you have no tasks to complete!'
     }
   },
-  createButton: function() {
+  createDeleteButton: function() {
     var createButton = document.createElement('button')
     // createButton.textContent = 'Delete'
     createButton.innerHTML = '<i class="fas fa-times"></i>'
     createButton.className = 'deleteButton'
     return createButton;
+  },
+  createEditButton: function() {
+    var createEditButton = document.createElement('button')
+    createEditButton.innerHTML = '<i class="far fa-edit"></i>'
+    createEditButton.className = 'editButton'
+    return createEditButton
   },
   eventListeners: function() {
     // click to delete button
@@ -172,11 +177,19 @@ view = {
       if (event.target.tagName === "LABEL") {
       event.target.contentEditable = true;
       event.target.isContentEditable = true;
-        }
-       })
-  }
 
-}
+      var changeTodoId = event.target.parentNode.id
+      var label = document.get
+ // var changeTodoText = label.textContent
+
+
+
+      }
+      // handlers.changeTodos();
+    })
+  }
+ }
+
 
 
 
