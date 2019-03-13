@@ -89,11 +89,11 @@ input {
 
 /* DELETE BUTTON */
 .deleteButton {
-  font-size: 2vw!important;
-  border-color: white!important;
-  color: peachpuff!important;
-  position: absolute;
-  left: 99vh;
+  border-color: white;
+}
+
+.editButton {
+  border-color: white;
 }
 
 /* TOGGLE */

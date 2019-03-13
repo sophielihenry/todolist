@@ -93,27 +93,37 @@ view = {
     todoList.todos.forEach(function(todo, position) {
     // make sure todoLi is inside for loop!
       var todoLi = document.createElement('li')
-      var label = document.createElement('label')
 
      if (todo.completed === true) {
         todoLi.innerHTML = '<i class="fas fa-check-circle"></i>'
         todoLi.className = 'toggle'
-        label.textContent = todo.todoText
+        var todoTextInput = document.createElement('input');
+        todoTextInput.type = "text";
+        todoTextInput.id = 'textInput';
+        todoTextInput.value = todo.todoText
+        todoTextInput.disabled = true;
         todoLi.id = position
-        todoLi.appendChild(label)
         todoUl.appendChild(todoLi)
-        var createButton = view.createDeleteButton();
-        todoLi.appendChild(createButton);
+        var createDeleteButton = view.createDeleteButton();
+        var createEditButton = view.createEditButton();
+        todoLi.appendChild(createEditButton);
+        todoLi.appendChild(createDeleteButton);
         view.todosToday();
         } else {
         todoLi.innerHTML = '<i class="far fa-circle"></i>'
         todoLi.className = 'toggle'
-        label.textContent = todo.todoText
+        var todoTextInput = document.createElement('input');
+        todoTextInput.type = "text";
+        todoTextInput.id = 'textInput';
+        todoTextInput.value = todo.todoText;
+        todoTextInput.disabled = true;
         todoLi.id = position
-        todoLi.appendChild(label)
+        todoLi.appendChild(todoTextInput)
         todoUl.appendChild(todoLi)
-        var createButton = view.createDeleteButton();
-        todoLi.appendChild(createButton);
+        var createDeleteButton = view.createDeleteButton();
+        var createEditButton = view.createEditButton();
+        todoLi.appendChild(createEditButton);
+        todoLi.appendChild(createDeleteButton)
         view.todosToday();
       }
     })
@@ -173,20 +183,14 @@ view = {
       }
     })
     // click to edit todo
-    var clickToEdit = document.addEventListener('click', function(event) {
-      if (event.target.tagName === "LABEL") {
-      event.target.contentEditable = true;
-      event.target.isContentEditable = true;
-
+    var editButton = document.addEventListener('click', function(event) {
       var changeTodoId = event.target.parentNode.id
-      var label = document.get
- // var changeTodoText = label.textContent
-
-
-
+      if (event.target.parentNode.className === 'editButton') {
+        event.target.parentElement.previousSibling.isContentEditable = true;
+        event.target.parentElement.previousSibling.contentEditable = true;
       }
+      })
       // handlers.changeTodos();
-    })
   }
  }
 
