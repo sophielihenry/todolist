@@ -22,17 +22,14 @@
   list-style: none;
   border-bottom: 1px solid lightpink;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
 
 #todoBox li label {
-/*  position: relative;
-  right: 25vh;*/
+  padding-left: 4vw;
 }
 
 #todoBoxContainer {
-  display: flex;
-  justify-content: center;
   margin-top: -2.5vh;
 }
 
@@ -64,12 +61,6 @@
    padding-left:2vw;
 }
 
-.toggleAddBar {
-  display: flex;
-
-}
-
-
 
 /* AMOUNT OF TODOS TODAY */
 #todosToday {
@@ -98,6 +89,8 @@ input {
   font-size: 2vw!important;
   border-color: white!important;
   color: peachpuff!important;
+  position: absolute;
+  left: 99vh;
 }
 
 /* TOGGLE */
@@ -114,6 +107,13 @@ input {
 .toggle {
   color:grey;
 }
+
+
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+
+}
+
 
 
 

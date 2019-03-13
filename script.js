@@ -163,15 +163,24 @@ view = {
     // click to toggle
     var clickToToggle = document.addEventListener('click', function(event) {
       var toggleId = event.target.parentNode.id
-      if (event.target.parentNode.className === 'toggle') {
+      if (event.target.nodeName=== 'I') {
         todoList.toggleCompleted(toggleId);
       }
     })
+    // click to edit todo
+    var clickToEdit = document.addEventListener('click', function(event) {
+      if (event.target.tagName === "LABEL") {
+      event.target.contentEditable = true;
+      event.target.isContentEditable = true;
+        }
+       })
   }
-};
+
+}
 
 
-view.eventListeners();
+
+view.eventListeners()
 
 
 
