@@ -1,19 +1,30 @@
 todoList = {
   todos: [],
-  // displayTodos: function() {
-  //   console.log('My todo list:')
-  //   this.todos.forEach(function(todo) {
-  //     if (todo.completed === true) {
-  //       console.log('(x)', todo.todoText)
-  //     } else {
-  //       console.log('( )', todo.todoText)
-  //     }
-  //   });
-  // },
-  addTodos: function(todo) {
-    this.todos.push({ todoText: todo,
-               completed: false })
-    view.displayTodos();
+  addTodos: function(event) {
+    // When enter is pressed, new todo is made
+    if (event.keyCode === 13) {
+      var addTodoTextInput = document.getElementById('addTodoText');
+      this.todos.push({
+      todoText: addTodoTextInput.value,
+      completed: false
+    });
+
+
+
+    //    if (addTodoTextInput.value === '') {
+    //   var noAddValue = document.getElementById('noValue');
+    //   noAddValue.textContent = 'please add in a todo'
+    // } else {
+    //  var noAddValue = document.getElementById('noValue');
+    //   noAddValue.textContent = ' '
+
+
+
+
+    // Reseting value after user input
+      addTodoTextInput.value = '';
+      view.displayTodos();
+    }
   },
   changeTodos: function(position, newTodo) {
     this.todos[position].todoText = newTodo
@@ -49,40 +60,23 @@ todoList = {
   }
 };
 
-handlers = {
-  displayTodos: function() {
-    view.displayTodos();
-  },
-  addTodos: function() {
-    var addTodos = document.getElementById('addTodoText')
+// handlers = {
+//   displayTodos: function() {
+//     view.displayTodos();
+//   },
+//   deleteTodos: function(position) {
+//     todoList.deleteTodos(position);
+//   },
+//   toggleCompleted: function() {
+//     todoList.toggleCompleted()
+//   },
+//   toggleAll: function() {
+//     todoList.toggleAll();
+//   }
+// };
 
-    if (addTodos.value === '') {
-      var noAddValue = document.getElementById('noValue');
-      noAddValue.textContent = 'please add in a todo'
-    } else {
-     var noAddValue = document.getElementById('noValue');
-      noAddValue.textContent = ' '
-      todoList.addTodos(addTodos.value)
-      addTodos.value = '';
-    }
-  },
-  deleteTodos: function(position) {
-    todoList.deleteTodos(position);
-  },
-  changeTodos: function() {
-    // var label = document.querySelector('label')
-    // var changeTodoText = label.textContent
 
-    // todoList.changeTodos(0, changeTodoText);
-    // clears the bar
-  },
-  toggleCompleted: function() {
-    todoList.toggleCompleted()
-  },
-  toggleAll: function() {
-    todoList.toggleAll();
-  }
-};
+
 
 view = {
   displayTodos: function() {
@@ -92,37 +86,32 @@ view = {
 
     todoList.todos.forEach(function(todo, position) {
     // make sure todoLi is inside for loop!
-      var todoLi = document.createElement('li')
+        var todoLi = document.createElement('li')
+        var todoTextInput = document.createElement('input');
+        todoTextInput.type = "text";
+        todoTextInput.id = 'todoTextInput';
+        todoTextInput.disabled = true;
 
      if (todo.completed === true) {
         todoLi.innerHTML = '<i class="fas fa-check-circle"></i>'
         todoLi.className = 'toggle'
-        var todoTextInput = document.createElement('input');
-        todoTextInput.type = "text";
-        todoTextInput.id = 'textInput';
         todoTextInput.value = todo.todoText
-        todoTextInput.disabled = true;
         todoLi.id = position
+        todoLi.appendChild(todoTextInput)
         todoUl.appendChild(todoLi)
         var createDeleteButton = view.createDeleteButton();
-        var createEditButton = view.createEditButton();
-        todoLi.appendChild(createEditButton);
+        // var createEditButton = view.createEditButton();
+        // todoLi.appendChild(createEditButton);
         todoLi.appendChild(createDeleteButton);
         view.todosToday();
         } else {
         todoLi.innerHTML = '<i class="far fa-circle"></i>'
         todoLi.className = 'toggle'
-        var todoTextInput = document.createElement('input');
-        todoTextInput.type = "text";
-        todoTextInput.id = 'textInput';
         todoTextInput.value = todo.todoText;
-        todoTextInput.disabled = true;
         todoLi.id = position
         todoLi.appendChild(todoTextInput)
         todoUl.appendChild(todoLi)
         var createDeleteButton = view.createDeleteButton();
-        var createEditButton = view.createEditButton();
-        todoLi.appendChild(createEditButton);
         todoLi.appendChild(createDeleteButton)
         view.todosToday();
       }
@@ -154,26 +143,20 @@ view = {
     createButton.className = 'deleteButton'
     return createButton;
   },
-  createEditButton: function() {
-    var createEditButton = document.createElement('button')
-    createEditButton.innerHTML = '<i class="far fa-edit"></i>'
-    createEditButton.className = 'editButton'
-    return createEditButton
-  },
+  // createEditButton: function() {
+  //   var createEditButton = document.createElement('button')
+  //   createEditButton.innerHTML = '<i class="far fa-edit"></i>'
+  //   createEditButton.className = 'editButton'
+  //   return createEditButton
+  // },
   eventListeners: function() {
     // click to delete button
     var deleteButton = document.addEventListener('click', function(event) {
       var deleteButtonId = event.target.parentNode.parentNode.id
       if (event.target.parentNode.className === 'deleteButton') {
-          handlers.deleteTodos(deleteButtonId)
+          todoList.deleteTodos(deleteButtonId)
           view.todosToday();
          }
-    })
-    // enter to add todo
-    var enterToAdd = document.addEventListener('keyup', function(event) {
-      if (event.keyCode === 13) {
-        handlers.addTodos();
-      }
     })
     // click to toggle
     var clickToToggle = document.addEventListener('click', function(event) {
@@ -182,17 +165,84 @@ view = {
         todoList.toggleCompleted(toggleId);
       }
     })
+
+    var todoUl = document.querySelector('ul');
+todoUl.addEventListener('click', function(event) {
+            var position = event.target.parentNode.id;
+      // var elementClicked = event.target.className;
+            if (event.target.tagName === 'INPUT') {
+                var input = document.getElementById(position).querySelector('input');
+
+                input.disabled = false;
+                input.className = "activeTextInput";
+        input.focus();
+        input.select();
+
+        input.addEventListener('keyup', function(event) {
+                    if(event.keyCode === 13) {
+                        var textInput = input.value;
+                        input.disabled = true;
+                        input.classList.remove("activeTextInput");
+                        todoList.changeTodos(position, textInput);
+                    };
+                });
+            };
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // click to edit todo
-    var editButton = document.addEventListener('click', function(event) {
-      var changeTodoId = event.target.parentNode.id
-      if (event.target.parentNode.className === 'editButton') {
-        event.target.parentElement.previousSibling.isContentEditable = true;
-        event.target.parentElement.previousSibling.contentEditable = true;
-      }
-      })
+    // var editButton = document.addEventListener('click', function(event) {
+    //   if (event.target.tagName === 'INPUT') {
+    //     var todoTextInput = document.getElementById('todoTextInput')
+    //     todoTextInput.disabled = false;
+    //     todoTextInput.focus()
+    //     todoTextInput.select()
+    //     console.log(todoTextInput)
+    //       }
+    //   })
       // handlers.changeTodos();
   }
  }
+
+
+// var clickToEdit = document.addEventListener('click', function(event) {
+//   var position = event.target.parentNode.id
+
+//   if (event.target.tagName === 'INPUT') {
+//     var input = document.getElementById(position).querySelector('input')
+//     input.disabled = false;
+//     input.className = "activeInput"
+//     input.focus();
+//     input.select();
+//   input.addEventListener('keyup', function(event) {
+//       if (event.keycode === 13) {
+//         var newTodo = input.value
+//         input.disabled = true;
+//         input.classList.remove('activeInput')
+//         todoList.changeTodos(position, newTodo)
+//       }
+//     })
+//   }
+// })
+
 
 
 

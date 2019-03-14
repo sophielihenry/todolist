@@ -25,11 +25,16 @@
   align-items: center;
 }
 
-#todoBox li label {
-    margin-left: 4vw;
-    width: 29vw;
-    padding: 1.5vw 0 1.5vw 0;
-    outline:none;
+
+#todoTextInput {
+  margin-left: 4vw;
+  width: 29vw;
+  padding: 1.5vw 0 1.5vw 0vw;
+  outline: none;
+  border: none;
+  font-size: 2vw;
+  font-weight: lighter;
+  color: darkorange;
 }
 
 #todoBoxContainer {
@@ -106,11 +111,6 @@ input {
   font-size: 3vw;
   color:purple;
 }
-
-.toggle {
-  color:grey;
-}
-
 
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {

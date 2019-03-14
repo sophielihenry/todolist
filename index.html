@@ -8,9 +8,10 @@
 
 <body>
   <h1 class="todoListHeading">Todo List</h1>
-  <button onclick="handlers.changeTodos()">Change a todo</button>
+<!--   <button onclick="handlers.changeTodos()">Change a todo</button>
     <input type="number" id='todoTextPosition'>
-    <input type="text" id='changeTodoText'>
+    <input type="text" id='changeTodoText'> -->
+
 <!--   <button onclick="handlers.toggleCompleted()">Toggle completed</button>
     <input type="checkbox" id='togglePosition'> -->
 
@@ -20,9 +21,14 @@
 
   <div class="todoCard">
     <div class="toggleAddBar">
-      <div onclick="handlers.toggleAll()" class="toggleAll">toggle all</div>
+      <div onclick="todoList.toggleAll()" class="toggleAll">toggle all</div>
       <div class="addTodoBar">
-       <input type="text" id='addTodoText' placeholder="add in a new todo" >
+       <input type="text" id='addTodoText' placeholder="add in a new todo"  onkeyup="todoList.addTodos(event)" >
+
+
+
+
+
       </div>
     </div>
 
@@ -38,6 +44,6 @@
     </p>
 
   <script src=script.js ></script>
-
 </body>
+
 </html>
