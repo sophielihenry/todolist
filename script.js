@@ -78,8 +78,6 @@ view = {
         todoLi.appendChild(todoTextInput)
         todoUl.appendChild(todoLi)
         var createDeleteButton = view.createDeleteButton();
-        // var createEditButton = view.createEditButton();
-        // todoLi.appendChild(createEditButton);
         todoLi.appendChild(createDeleteButton);
         // strike through text when completed
         var x = document.getElementById(position).querySelector('input')
@@ -124,16 +122,6 @@ view = {
     createButton.className = 'deleteButton'
     return createButton;
   },
-  // createEditButton: function() {
-  //   var createEditButton = document.createElement('button')
-  //   createEditButton.innerHTML = '<i class="far fa-edit"></i>'
-  //   createEditButton.className = 'editButton'
-  //   return createEditButton
-  // },
-
-
-
-
   eventListeners: function() {
     // click to delete button
     var deleteButton = document.addEventListener('click', function(event) {
@@ -148,20 +136,6 @@ view = {
       var toggleId = event.target.parentNode.id
       if (event.target.nodeName=== 'I') {
         todoList.toggleCompleted(toggleId);
-
-        if (todoList.todos[toggleId].completed === true) {
-
-           // strike through when completed
-          // var strikeThrough = document.getElementById(toggleId).querySelector('input')
-          // strikeThrough.style.textDecoration = "line-through";
-          // strikeThrough.style.opacity = "0.5"
-
-
-
-        }
-
-
-
       }
     })
     // click to edit and enter to save
