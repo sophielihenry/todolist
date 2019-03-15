@@ -81,9 +81,13 @@ view = {
         // var createEditButton = view.createEditButton();
         // todoLi.appendChild(createEditButton);
         todoLi.appendChild(createDeleteButton);
+        // strike through text when completed
+        var x = document.getElementById(position).querySelector('input')
+        x.style.textDecoration = "line-through";
         view.todosToday();
         } else {
         todoLi.innerHTML = '<i class="far fa-circle"></i>'
+
         todoLi.className = 'toggle'
         todoTextInput.value = todo.todoText;
         todoLi.id = position
@@ -126,6 +130,10 @@ view = {
   //   createEditButton.className = 'editButton'
   //   return createEditButton
   // },
+
+
+
+
   eventListeners: function() {
     // click to delete button
     var deleteButton = document.addEventListener('click', function(event) {
@@ -140,6 +148,20 @@ view = {
       var toggleId = event.target.parentNode.id
       if (event.target.nodeName=== 'I') {
         todoList.toggleCompleted(toggleId);
+
+        if (todoList.todos[toggleId].completed === true) {
+
+           // strike through when completed
+          // var strikeThrough = document.getElementById(toggleId).querySelector('input')
+          // strikeThrough.style.textDecoration = "line-through";
+          // strikeThrough.style.opacity = "0.5"
+
+
+
+        }
+
+
+
       }
     })
     // click to edit and enter to save

@@ -1,7 +1,7 @@
 /* Styles go here */
 
 .todoListHeading {
-  font-family:helvetica;
+  font-family: 'Roboto', sans-serif;
   font-weight:lighter;
   text-align:center;
   font-size:4vw;
@@ -15,7 +15,7 @@
 }
 
 #todoBox li {
-  font-family:helvetica;
+  font-family: 'Roboto', sans-serif;
   font-size:2vw;
   padding:2vw 0 1vw 3vw;
   font-weight:lighter;
@@ -35,6 +35,7 @@
   font-size: 2vw;
   font-weight: lighter;
   color: darkorange;
+  font-family: roboto;
 }
 
 #todoBoxContainer {
@@ -59,6 +60,7 @@
   font-size: 2vw;
   font-weight:lighter;
   padding-left:2vw;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* ADD A TODO INPUT  */
@@ -72,7 +74,7 @@
 
 /* AMOUNT OF TODOS TODAY */
 #todosToday {
-  font-family:helvetica;
+  font-family: 'Roboto', sans-serif;
   font-size:1.5vw;
   text-align:center;
   font-weight:lighter;
@@ -80,7 +82,7 @@
 
 /* PLEASE INPUT A VALUE */
 #noValue {
-  font-family:helvetica;
+  font-family: 'Roboto', sans-serif;
   font-weight:bold;
   text-align: center;
 }
