@@ -1,15 +1,13 @@
 todoList = {
   todos: [],
   addTodos: function(event) {
-    // When enter is pressed, new todo is made
+    // press enter to create a new todo
     if (event.keyCode === 13) {
       var addTodoTextInput = document.getElementById('addTodoText');
       this.todos.push({
       todoText: addTodoTextInput.value,
       completed: false
     });
-
-
 
     //    if (addTodoTextInput.value === '') {
     //   var noAddValue = document.getElementById('noValue');
@@ -19,9 +17,7 @@ todoList = {
     //   noAddValue.textContent = ' '
 
 
-
-
-    // Reseting value after user input
+    // Reseting to empty string after user input
       addTodoTextInput.value = '';
       view.displayTodos();
     }
@@ -59,24 +55,6 @@ todoList = {
     view.displayTodos();
   }
 };
-
-// handlers = {
-//   displayTodos: function() {
-//     view.displayTodos();
-//   },
-//   deleteTodos: function(position) {
-//     todoList.deleteTodos(position);
-//   },
-//   toggleCompleted: function() {
-//     todoList.toggleCompleted()
-//   },
-//   toggleAll: function() {
-//     todoList.toggleAll();
-//   }
-// };
-
-
-
 
 view = {
   displayTodos: function() {
@@ -125,7 +103,6 @@ view = {
         completedTodos++
       }
     })
-
     var todosToday = document.getElementById('todosToday')
     if (completedTodos > 1) {
       todosToday.textContent = 'you have' + " " + completedTodos + " " + 'tasks to complete today'
@@ -165,87 +142,29 @@ view = {
         todoList.toggleCompleted(toggleId);
       }
     })
-
+    // click to edit and enter to save
     var todoUl = document.querySelector('ul');
-todoUl.addEventListener('click', function(event) {
-            var position = event.target.parentNode.id;
-      // var elementClicked = event.target.className;
-            if (event.target.tagName === 'INPUT') {
-                var input = document.getElementById(position).querySelector('input');
+    todoUl.addEventListener('click', function(event) {
+      var position = event.target.parentNode.id;
+        if (event.target.tagName === 'INPUT') {
+            var input = document.getElementById(position).querySelector('input');
+            input.disabled = false;
+            input.className = "activeTextInput";
+            input.focus();
+            // input.select();
 
-                input.disabled = false;
-                input.className = "activeTextInput";
-        input.focus();
-        input.select();
-
-        input.addEventListener('keyup', function(event) {
-                    if(event.keyCode === 13) {
-                        var textInput = input.value;
-                        input.disabled = true;
-                        input.classList.remove("activeTextInput");
-                        todoList.changeTodos(position, textInput);
-                    };
-                });
-            };
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // click to edit todo
-    // var editButton = document.addEventListener('click', function(event) {
-    //   if (event.target.tagName === 'INPUT') {
-    //     var todoTextInput = document.getElementById('todoTextInput')
-    //     todoTextInput.disabled = false;
-    //     todoTextInput.focus()
-    //     todoTextInput.select()
-    //     console.log(todoTextInput)
-    //       }
-    //   })
-      // handlers.changeTodos();
-  }
+            input.addEventListener('keyup', function(event) {
+              if(event.keyCode === 13) {
+                var newTodo = input.value;
+                input.disabled = true;
+                input.classList.remove("activeTextInput");
+                todoList.changeTodos(position, newTodo);
+              };
+          });
+          };
+      });
+    }
  }
-
-
-// var clickToEdit = document.addEventListener('click', function(event) {
-//   var position = event.target.parentNode.id
-
-//   if (event.target.tagName === 'INPUT') {
-//     var input = document.getElementById(position).querySelector('input')
-//     input.disabled = false;
-//     input.className = "activeInput"
-//     input.focus();
-//     input.select();
-//   input.addEventListener('keyup', function(event) {
-//       if (event.keycode === 13) {
-//         var newTodo = input.value
-//         input.disabled = true;
-//         input.classList.remove('activeInput')
-//         todoList.changeTodos(position, newTodo)
-//       }
-//     })
-//   }
-// })
-
-
-
-
 
 view.eventListeners()
 

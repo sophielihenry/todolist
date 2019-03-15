@@ -8,40 +8,30 @@
 
 <body>
   <h1 class="todoListHeading">Todo List</h1>
-<!--   <button onclick="handlers.changeTodos()">Change a todo</button>
-    <input type="number" id='todoTextPosition'>
-    <input type="text" id='changeTodoText'> -->
+    <p id="noValue">
+    </p>
 
-<!--   <button onclick="handlers.toggleCompleted()">Toggle completed</button>
-    <input type="checkbox" id='togglePosition'> -->
+    <div class="todoCard">
+      <div class="toggleAddBar">
 
-  <p id="noValue">
-  </p>
+        <div onclick="todoList.toggleAll()" class="toggleAll">toggle all</div>
 
+        <div class="addTodoBar">
+         <input type="text" id='addTodoText' placeholder="add in a new todo"  onkeyup="todoList.addTodos(event)" >
+        </div>
+      </div>
 
-  <div class="todoCard">
-    <div class="toggleAddBar">
-      <div onclick="todoList.toggleAll()" class="toggleAll">toggle all</div>
-      <div class="addTodoBar">
-       <input type="text" id='addTodoText' placeholder="add in a new todo"  onkeyup="todoList.addTodos(event)" >
+      <div id="todoBoxContainer">
 
-
-
-
+        <ul id=todoBox>
+        </ul>
 
       </div>
     </div>
 
-    <div id="todoBoxContainer">
+      <p id="todosToday">
+      </p>
 
-      <ul id=todoBox>
-      </ul>
-
-    </div>
-  </div>
-
-    <p id="todosToday">
-    </p>
 
   <script src=script.js ></script>
 </body>
