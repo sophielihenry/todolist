@@ -59,6 +59,8 @@ todoList = {
 view = {
   displayTodos: function() {
     var todoUl = document.querySelector('ul')
+    // var todoUl = document.createElement('ul')
+
     // sets to 0 so doesnt keep adding extra bullet points again
     todoUl.innerHTML = '';
 
@@ -71,7 +73,7 @@ view = {
         todoTextInput.disabled = true;
 
      if (todo.completed === true) {
-        todoLi.innerHTML = '<i class="fas fa-check-circle"></i>'
+        todoLi.innerHTML = '<i class="fas fa-check-circle" "circle"></i>'
         todoLi.className = 'toggle'
         todoTextInput.value = todo.todoText
         todoLi.id = position
@@ -80,11 +82,14 @@ view = {
         var createDeleteButton = view.createDeleteButton();
         todoLi.appendChild(createDeleteButton);
         // strike through text when completed
-        var x = document.getElementById(position).querySelector('input')
-        x.style.textDecoration = "line-through";
+        var strikeThroughCompleted = document.getElementById(position).querySelector('input')
+        strikeThroughCompleted.style.textDecoration = "line-through";
+        strikeThroughCompleted.style.opacity = "0.3";
+
+
         view.todosToday();
         } else {
-        todoLi.innerHTML = '<i class="far fa-circle"></i>'
+        todoLi.innerHTML = '<i class="far fa-circle" "circle"></i>'
 
         todoLi.className = 'toggle'
         todoTextInput.value = todo.todoText;
@@ -113,6 +118,8 @@ view = {
       todosToday.textContent = 'you have 1 task to complete today'
     } else {
       todosToday.textContent = 'congratulations! you have no tasks to complete!'
+      // var todoUl = document.querySelector('ul')
+      // todoUl.parentNode.removeChild(todoUl)
     }
   },
   createDeleteButton: function() {
@@ -140,6 +147,7 @@ view = {
     })
     // click to edit and enter to save
     var todoUl = document.querySelector('ul');
+    // var todoUl = document.createElement('ul')
     todoUl.addEventListener('click', function(event) {
       var position = event.target.parentNode.id;
         if (event.target.tagName === 'INPUT') {

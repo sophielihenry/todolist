@@ -10,14 +10,26 @@
 
 <body>
   <h1 class="todoListHeading">Todo List</h1>
+
+
+<!--   <script type="text/javascript">
+ var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = dd + '/' + mm + '/' + yyyy;
+document.write(today);
+</script> -->
+
     <p id="noValue">
     </p>
 
     <div class="todoCard">
       <div class="toggleAddBar">
 
-        <div onclick="todoList.toggleAll()" class="toggleAll">toggle all</div>
-
+<!--         <div onclick="todoList.toggleAll()" class="toggleAll">toggle all</div>
+ -->
         <div class="addTodoBar">
          <input type="text" id='addTodoText' placeholder="What needs to be done today?"  onkeyup="todoList.addTodos(event)" >
         </div>

@@ -10,7 +10,7 @@
 /* TO DO BOX */
 #todoBox {
   border:1px solid lavender;
-  width:50vw;
+  width:29vw;
   padding: 0 4vw 3vw 4vw;
 }
 
@@ -26,14 +26,13 @@
   justify-content: space-between;
 }
 
-
 #todoTextInput {
   margin-left: 4vw;
   width: 29vw;
   padding: 1.5vw 0 1.5vw 0vw;
   outline: none;
   border: none;
-  font-size: 2vw;
+  font-size: 1.5vw;
   font-weight: lighter;
   color: darkorange;
   font-family: roboto;
@@ -56,13 +55,13 @@
 }
 
 #addTodoText {
-  width: 50vw;
+  width: 37vw;
   height: 12vh;
   font-size: 2vw;
-  font-weight:lighter;
-  padding-left:2vw;
+  font-weight: lighter;
   font-family: 'Roboto', sans-serif;
-  border: 2px solid lavender
+  border: 2px solid lavender;
+  text-align: left;
 }
 
 /* ADD A TODO INPUT  */
@@ -93,7 +92,6 @@ input {
   outline:none;
 }
 
-
 /* DELETE BUTTON */
 .deleteButton {
   border-color: white;
@@ -104,14 +102,15 @@ input {
 }
 
 /* TOGGLE */
-.far {
-  font-size: 3vw;
-  color:lightgrey;
+.fas {
+  font-size: 2vw;
+  color: lavender;
 }
 
-.fas {
-  font-size: 3vw;
-  color:lightgrey;
+.far {
+  font-size: 2vw;
+  color: lavender
+
 }
 
 
