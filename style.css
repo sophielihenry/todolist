@@ -9,21 +9,22 @@
 
 /* TO DO BOX */
 #todoBox {
-  border:1px solid lavender;
-  width:29vw;
-  padding: 0 4vw 3vw 4vw;
+  border: 1px solid lavender;
+  width: 29vw;
+  padding: 0 4vw 2.5vw 2.5vw;
 }
 
 #todoBox li {
   font-family: 'Roboto', sans-serif;
-  font-size:2vw;
-  padding:2vw 0 1vw 3vw;
-  font-weight:lighter;
+  font-size: 2vw;
+  padding: 1vw 0 0.5vw 0vw;
+  font-weight: lighter;
   list-style: none;
   border-bottom: 1px solid lavender;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 31vw;
 }
 
 #todoTextInput {
@@ -114,10 +115,11 @@ input {
 }
 
 
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
+@media (min-width:800px) {
+
+
 
 }
-
 
 
 

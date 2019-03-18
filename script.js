@@ -1,6 +1,6 @@
 todoList = {
   todos: [],
-  addTodos: function(event) {
+  addTodos(event) {
     // press enter to create a new todo
     if (event.keyCode === 13) {
       var addTodoTextInput = document.getElementById('addTodoText');
@@ -22,19 +22,19 @@ todoList = {
       view.displayTodos();
     }
   },
-  changeTodos: function(position, newTodo) {
+  changeTodos(position, newTodo) {
     this.todos[position].todoText = newTodo
     view.displayTodos();
   },
-  deleteTodos: function(position) {
+  deleteTodos(position) {
     this.todos.splice(position, 1)
     view.displayTodos();
   },
-  toggleCompleted: function(position) {
+  toggleCompleted(position) {
     this.todos[position].completed = !this.todos[position].completed;
     view.displayTodos();
   },
-  toggleAll: function() {
+  toggleAll() {
   var totalTodos = this.todos.length;
   var completedTodos = 0;
   // get number of completed todos
@@ -57,7 +57,7 @@ todoList = {
 };
 
 view = {
-  displayTodos: function() {
+  displayTodos() {
     var todoUl = document.querySelector('ul')
     // var todoUl = document.createElement('ul')
 
@@ -102,7 +102,7 @@ view = {
       }
     })
   },
-  todosToday: function() {
+  todosToday() {
   // count how many completed todos there are
     completedTodos = 0;
     todoList.todos.forEach(function(todo) {
@@ -113,7 +113,6 @@ view = {
     var todosToday = document.getElementById('todosToday')
     if (completedTodos > 1) {
       todosToday.textContent = 'you have' + " " + completedTodos + " " + 'tasks to complete today'
-
     } else if (completedTodos === 1) {
       todosToday.textContent = 'you have 1 task to complete today'
     } else {
@@ -122,14 +121,14 @@ view = {
       // todoUl.parentNode.removeChild(todoUl)
     }
   },
-  createDeleteButton: function() {
+  createDeleteButton() {
     var createButton = document.createElement('button')
     // createButton.textContent = 'Delete'
     createButton.innerHTML = '<i class="fas fa-times"></i>'
     createButton.className = 'deleteButton'
     return createButton;
   },
-  eventListeners: function() {
+  eventListeners() {
     // click to delete button
     var deleteButton = document.addEventListener('click', function(event) {
       var deleteButtonId = event.target.parentNode.parentNode.id
