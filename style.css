@@ -111,14 +111,14 @@ input {
 .far {
   font-size: 2vw;
   color: lavender
-
 }
 
-
-@media (min-width:800px) {
-
-
-
+/* FOOTER */
+.footer {
+  text-align: center;
+  font-family: 'roboto';
+  font-size: 13px;
+  margin-top: 73px;
 }
 
 

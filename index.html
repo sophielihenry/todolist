@@ -5,49 +5,28 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
-
 </head>
 
-<body>
-  <h1 class="todoListHeading">Todo List</h1>
-
-
-<!--   <script type="text/javascript">
- var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
-
-today = dd + '/' + mm + '/' + yyyy;
-document.write(today);
-</script> -->
-
-    <p id="noValue">
-    </p>
-
-    <div class="todoCard">
-      <div class="toggleAddBar">
-
-<!--         <div onclick="todoList.toggleAll()" class="toggleAll">toggle all</div>
- -->
-        <div class="addTodoBar">
-         <input type="text" id='addTodoText' placeholder="What needs to be done today?"  onkeyup="todoList.addTodos(event)" >
+  <body>
+    <h1 class="todoListHeading">Todo List</h1>
+      <p id="noValue"> </p>
+      <div class="todoCard">
+        <div class="toggleAddBar">
+  <!--<div onclick="todoList.toggleAll()" class="toggleAll">toggle all</div> -->
+          <div class="addTodoBar">
+            <input type="text" id='addTodoText' placeholder="What needs to be done today?"  onkeyup="todoList.addTodos(event)" >
+          </div>
+        </div>
+        <div id="todoBoxContainer">
+          <ul id=todoBox></ul>
         </div>
       </div>
+      <p id="todosToday"></p>
 
-      <div id="todoBoxContainer">
+      <footer>
+        <p class="footer">created with vanilla javascript</p>
+      </footer>
 
-        <ul id=todoBox>
-        </ul>
-
-      </div>
-    </div>
-
-      <p id="todosToday">
-      </p>
-
-
-  <script src=script.js ></script>
-</body>
-
+    <script src=script.js ></script>
+  </body>
 </html>

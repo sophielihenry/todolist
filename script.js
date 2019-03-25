@@ -16,7 +16,6 @@ todoList = {
     //  var noAddValue = document.getElementById('noValue');
     //   noAddValue.textContent = ' '
 
-
     // Reseting to empty string after user input
       addTodoTextInput.value = '';
       view.displayTodos();
@@ -38,8 +37,10 @@ todoList = {
   var totalTodos = this.todos.length;
   var completedTodos = 0;
   // get number of completed todos
+
     this.todos.forEach(function(todo) {
-     if (todo.completed === true) {
+  // === true shorthand
+     if (todo.completed) {
       completedTodos++
     }
   })
@@ -72,7 +73,7 @@ view = {
         todoTextInput.id = 'todoTextInput';
         todoTextInput.disabled = true;
 
-     if (todo.completed === true) {
+     if (todo.completed) {
         todoLi.innerHTML = '<i class="fas fa-check-circle" "circle"></i>'
         todoLi.className = 'toggle'
         todoTextInput.value = todo.todoText
@@ -85,12 +86,9 @@ view = {
         var strikeThroughCompleted = document.getElementById(position).querySelector('input')
         strikeThroughCompleted.style.textDecoration = "line-through";
         strikeThroughCompleted.style.opacity = "0.3";
-
-
         view.todosToday();
         } else {
         todoLi.innerHTML = '<i class="far fa-circle" "circle"></i>'
-
         todoLi.className = 'toggle'
         todoTextInput.value = todo.todoText;
         todoLi.id = position
@@ -112,13 +110,11 @@ view = {
     })
     var todosToday = document.getElementById('todosToday')
     if (completedTodos > 1) {
-      todosToday.textContent = 'you have' + " " + completedTodos + " " + 'tasks to complete today'
+      todosToday.textContent = `you have ${completedTodos} tasks to complete today`
     } else if (completedTodos === 1) {
       todosToday.textContent = 'you have 1 task to complete today'
     } else {
       todosToday.textContent = 'congratulations! you have no tasks to complete!'
-      // var todoUl = document.querySelector('ul')
-      // todoUl.parentNode.removeChild(todoUl)
     }
   },
   createDeleteButton() {
