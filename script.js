@@ -9,12 +9,13 @@ todoList = {
       completed: false
     });
 
-    //    if (addTodoTextInput.value === '') {
-    //   var noAddValue = document.getElementById('noValue');
-    //   noAddValue.textContent = 'please add in a todo'
-    // } else {
-    //  var noAddValue = document.getElementById('noValue');
-    //   noAddValue.textContent = ' '
+     if (addTodoTextInput.value === '') {
+        var noAddValue = document.getElementById('noValue');
+        noAddValue.textContent = 'please add in a todo'
+      } else {
+        var noAddValue = document.getElementById('noValue');
+        noAddValue.textContent = ' '
+    }
 
     // Reseting to empty string after user input
       addTodoTextInput.value = '';
