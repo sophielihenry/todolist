@@ -4,14 +4,11 @@ todoList = {
     // press enter to create a new todo
 
     if (event.keyCode === 13) {
-
       var addTodoTextInput = document.getElementById('addTodoText');
       this.todos.push({
       todoText: addTodoTextInput.value,
       completed: false
     });
-
-
 
       if (addTodoTextInput.value === "") {
         var noAddValue = document.getElementById('noValue');
