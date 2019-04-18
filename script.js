@@ -2,18 +2,23 @@ todoList = {
   todos: [],
   addTodos(event) {
     // press enter to create a new todo
-    if (event.keyCode === 13) {
       var addTodoTextInput = document.getElementById('textInput');
+
+    if (event.keyCode === 13) {
+      if (addTodoTextInput.value === "") {
+      var noAddValue = document.getElementById('noValue');
+      noAddValue.textContent = 'please add in a todo'
+      return false
+  } else {
       this.todos.push({
       todoText: addTodoTextInput.value,
       completed: false
     });
 
-    if (addTodoTextInput.value === "") {
-      var noAddValue = document.getElementById('noValue');
-      noAddValue.textContent = 'please add in a todo'
-      return false
   }
+
+
+
     // Reseting to empty string after user input
       addTodoTextInput.value = '';
       view.displayTodos();
