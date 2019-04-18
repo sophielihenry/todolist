@@ -80,7 +80,7 @@ view = {
           // strike through text when completed
           var strikeThroughCompleted = document.getElementById(position).querySelector('input')
           strikeThroughCompleted.style.textDecoration = "line-through";
-          strikeThroughCompleted.style.opacity = "0.3";
+          strikeThroughCompleted.style.opacity = "0.4";
         } else {
           todoLi.innerHTML = '<i class="far fa-circle" "circle"></i>'
           todoLi.className = 'toggle'
