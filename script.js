@@ -2,7 +2,7 @@ todoList = {
   todos: [],
   addTodos(event) {
     // press enter to create a new todo
-    var addTodoTextInput = document.getElementById('textInput');
+    let addTodoTextInput = document.getElementById('textInput');
     if (event.keyCode === 13) {
       if (addTodoTextInput.value === "") {
         alert("Please add in a todo!")
@@ -30,8 +30,8 @@ todoList = {
     view.displayTodos();
   },
   toggleAll() {
-  var totalTodos = this.todos.length;
-  var completedTodos = 0;
+  let totalTodos = this.todos.length;
+  let completedTodos = 0;
   // get number of completed todos
 
     this.todos.forEach(function(todo) {
@@ -55,14 +55,14 @@ todoList = {
 
 view = {
   displayTodos() {
-    var todoUl = document.querySelector('ul')
+    let todoUl = document.querySelector('ul')
     // sets to 0 so doesnt keep adding extra bullet points again
     todoUl.innerHTML = '';
 
     todoList.todos.forEach(function(todo, position) {
     // make sure todoLi is inside for loop!
-        var todoLi = document.createElement('li')
-        var todoTextInput = document.createElement('input');
+        let todoLi = document.createElement('li')
+        let todoTextInput = document.createElement('input');
         todoTextInput.type = "text";
         todoTextInput.id = 'todoTextInput';
         todoTextInput.disabled = true;
@@ -74,7 +74,7 @@ view = {
           todoLi.id = position
           todoUl.appendChild(todoLi)
           // strike through text when completed
-          var strikeThroughCompleted = document.getElementById(position).querySelector('input')
+          let strikeThroughCompleted = document.getElementById(position).querySelector('input')
           strikeThroughCompleted.style.textDecoration = "line-through";
           strikeThroughCompleted.style.opacity = "0.4";
         } else {
@@ -97,7 +97,7 @@ view = {
         completedTodos++
       }
     })
-    var todosToday = document.getElementById('todosToday')
+    let todosToday = document.getElementById('todosToday')
     if (completedTodos > 1) {
       todosToday.textContent = `you have ${completedTodos} tasks to complete today`
     } else if (completedTodos === 1) {
@@ -107,40 +107,40 @@ view = {
     }
   },
   createDeleteButton() {
-    var createButton = document.createElement('button')
+    let createButton = document.createElement('button')
     createButton.innerHTML = '<i class="fas fa-times"></i>'
     createButton.className = 'deleteButton'
     return createButton;
   },
   eventListeners() {
     // click to delete button
-    var deleteButton = document.addEventListener('click', function(event) {
-      var deleteButtonId = event.target.parentNode.parentNode.id
+    let deleteButton = document.addEventListener('click', function(event) {
+      let deleteButtonId = event.target.parentNode.parentNode.id
       if (event.target.parentNode.className === 'deleteButton') {
           todoList.deleteTodos(deleteButtonId)
           view.todosToday();
          }
     })
     // click to toggle
-    var clickToToggle = document.addEventListener('click', function(event) {
-      var toggleId = event.target.parentNode.id
+    let clickToToggle = document.addEventListener('click', function(event) {
+      let toggleId = event.target.parentNode.id
       if (event.target.nodeName=== 'I') {
         todoList.toggleCompleted(toggleId);
       }
     })
     // click to edit and enter to save
-    var todoUl = document.querySelector('ul');
+    let todoUl = document.querySelector('ul');
     todoUl.addEventListener('click', function(event) {
-      var position = event.target.parentNode.id;
+      let position = event.target.parentNode.id;
         if (event.target.tagName === 'INPUT') {
-            var input = document.getElementById(position).querySelector('input');
+            let input = document.getElementById(position).querySelector('input');
             input.disabled = false;
             input.className = "activeTextInput";
             input.focus();
             // input.select();
             input.addEventListener('keyup', function(event) {
               if(event.keyCode === 13) {
-                var newTodo = input.value;
+                let newTodo = input.value;
                 input.disabled = true;
                 input.classList.remove("activeTextInput");
                 todoList.changeTodos(position, newTodo);
