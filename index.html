@@ -11,13 +11,11 @@
     <h1 class="todoListHeading">Todo List</h1>
       <p id="noValue"> </p>
       <div class="todoCard">
-        <div class="toggleAddBar">
   <!--<div onclick="todoList.toggleAll()" class="toggleAll">toggle all</div> -->
-          <div class="addTodoBar">
-            <input type="text" id='addTodoText' placeholder="What needs to be done today?" onkeyup="todoList.addTodos(event)">
-          </div>
-        </div>
         <div id="todoBoxContainer">
+          <div class="addTodoBar">
+            <input type="text" id='textInput' placeholder="What needs to be done today?" onkeyup="todoList.addTodos(event)">
+          </div>
           <ul id=todoBox></ul>
         </div>
       </div>

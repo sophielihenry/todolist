@@ -3,7 +3,7 @@ todoList = {
   addTodos(event) {
     // press enter to create a new todo
     if (event.keyCode === 13) {
-      var addTodoTextInput = document.getElementById('addTodoText');
+      var addTodoTextInput = document.getElementById('textInput');
       this.todos.push({
       todoText: addTodoTextInput.value,
       completed: false

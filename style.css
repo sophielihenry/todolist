@@ -9,8 +9,6 @@
 /* TO DO BOX */
 #todoBox {
   border: 1px solid lavender;
-  width: 29vw;
-  padding: 0 4vw 2.5vw 2.5vw;
   background: #fff;
   box-shadow:
     0 1px 1px rgba(0,0,0,0.15),
@@ -18,7 +16,6 @@
     0 10px 1px -4px rgba(0,0,0,0.15),
     0 20px 0 -10px #eee,
     0 20px 1px -9px rgba(0,0,0,0.15);
-    padding: 30px;
 }
 
 #todoBox li {
@@ -46,30 +43,19 @@
   font-family: roboto;
 }
 
-#todoBoxContainer {
-  margin-top: 3.5vh;
-}
-
 .todoCard {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.addTodoBar {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-#addTodoText {
+#textInput {
   width: 37vw;
   height: 12vh;
   font-size: 2vw;
   font-weight: lighter;
   font-family: 'Roboto', sans-serif;
   border: 2px solid lavender;
-  text-align: left;
 }
 
 /* ADD A TODO INPUT  */
