@@ -3,7 +3,6 @@ todoList = {
   addTodos(event) {
     // press enter to create a new todo
     var addTodoTextInput = document.getElementById('textInput');
-
     if (event.keyCode === 13) {
       if (addTodoTextInput.value === "") {
         alert("Please add in a todo!")
@@ -11,8 +10,8 @@ todoList = {
         this.todos.push({
         todoText: addTodoTextInput.value,
         completed: false
-    });
-  }
+        });
+      }
     // Reseting to empty string after user input
       addTodoTextInput.value = '';
       view.displayTodos();
@@ -57,8 +56,6 @@ todoList = {
 view = {
   displayTodos() {
     var todoUl = document.querySelector('ul')
-    // var todoUl = document.createElement('ul')
-
     // sets to 0 so doesnt keep adding extra bullet points again
     todoUl.innerHTML = '';
 
@@ -111,7 +108,6 @@ view = {
   },
   createDeleteButton() {
     var createButton = document.createElement('button')
-    // createButton.textContent = 'Delete'
     createButton.innerHTML = '<i class="fas fa-times"></i>'
     createButton.className = 'deleteButton'
     return createButton;
@@ -134,7 +130,6 @@ view = {
     })
     // click to edit and enter to save
     var todoUl = document.querySelector('ul');
-    // var todoUl = document.createElement('ul')
     todoUl.addEventListener('click', function(event) {
       var position = event.target.parentNode.id;
         if (event.target.tagName === 'INPUT') {
@@ -143,7 +138,6 @@ view = {
             input.className = "activeTextInput";
             input.focus();
             // input.select();
-
             input.addEventListener('keyup', function(event) {
               if(event.keyCode === 13) {
                 var newTodo = input.value;
