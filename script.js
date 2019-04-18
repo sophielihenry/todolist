@@ -3,7 +3,7 @@ todoList = {
   addTodos(event) {
     // press enter to create a new todo
     let addTodoTextInput = document.getElementById('textInput');
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 ) {
       if (addTodoTextInput.value === "") {
         alert("Please add in a todo!")
       } else {
@@ -130,6 +130,7 @@ view = {
     })
     // click to edit and enter to save
     let todoUl = document.querySelector('ul');
+
     todoUl.addEventListener('click', function(event) {
       let position = event.target.parentNode.id;
         if (event.target.tagName === 'INPUT') {
@@ -138,17 +139,18 @@ view = {
             input.className = "activeTextInput";
             input.focus();
             // input.select();
-            input.addEventListener('keyup', function(event) {
-              if(event.keyCode === 13) {
-                let newTodo = input.value;
-                input.disabled = true;
-                input.classList.remove("activeTextInput");
-                todoList.changeTodos(position, newTodo);
-              };
-          });
+
+            input.addEventListener('blur', function() {
+              let newTodo = input.value;
+              input.disabled = true;
+              input.classList.remove('activeTextInput');
+              todoList.changeTodos(position, newTodo);
+            });
           };
       });
     }
  }
+
+
 
 view.eventListeners()
