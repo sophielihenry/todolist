@@ -44,15 +44,16 @@
 }
 
 #todoTextInput {
-  outline: none;
-  font-size: 16px;
+/*  outline: none;
+*/  font-size: 16px;
   font-weight: lighter;
   font-family: roboto;
   margin-right:87px;
+  border: 1px solid white
 }
 
 #textInput {
-  height: 2rem;
+  height: 40px;
   font-size: 16px;
   font-weight: lighter;
   font-family: 'Roboto', sans-serif;
@@ -108,11 +109,11 @@ input {
 
 @media only screen and (min-width: 360px) {
  #todoTextInput {
-  margin-right:75px;
+  margin-right:20px;
  }
 
- #todoItems li {
-  width:110%;
+ .wrapper {
+  width:85%;
  }
 }
 
@@ -188,6 +189,15 @@ input {
  }
 }
 
+@media only screen and (min-width: 1240px) {
+  .wrapper {
+    width:40%;
+   }
+
+    #todoTextInput {
+    margin-right:220px;
+ }
+}
 
 
 
