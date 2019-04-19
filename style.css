@@ -48,7 +48,9 @@
   font-size: 16px;
   font-weight: lighter;
   font-family: roboto;
-  border: 1px solid white
+  border: 1px solid white;
+  width:80%;
+  background-color:white;
 }
 
 #textInput {
@@ -81,23 +83,23 @@ input {
 
  /* DELETE BUTTON */
 .deleteButton {
-  border-color: white;
+  border: 0px solid white;
   background-color: white;
+  width: 10%;
 }
 
-.editButton {
-  border-color: white;
-}
 
 /* TOGGLE */
 .fas, .far, .fa-circle:before, .fa-check-circle:before {
   font-size: 20px;
   color: lightgrey;
-  margin-left:9px;
+  margin-left:3.5%;
+  width:10%;
 }
 
 .fa-times:before {
   font-size:15px;
+   width:10%;
 }
 
 
