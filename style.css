@@ -1,5 +1,10 @@
 .wrapper {
-  width: 50%
+  width: 90%;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
 }
 
 .container {
@@ -12,7 +17,7 @@
   font-family: 'Roboto', sans-serif;
   font-weight:lighter;
   text-align:center;
-  font-size:18px
+  font-size:23px;
 }
 
 /* TO DO BOX */
@@ -40,14 +45,15 @@
 
 #todoTextInput {
   outline: none;
-  font-size: 8px;
+  font-size: 16px;
   font-weight: lighter;
   font-family: roboto;
+  margin-right:87px;
 }
 
 #textInput {
   height: 2rem;
-  font-size: 10px;
+  font-size: 16px;
   font-weight: lighter;
   font-family: 'Roboto', sans-serif;
   border: 1px solid lightgrey;
@@ -57,12 +63,13 @@
 /* ADD A TODO INPUT  */
 ::-webkit-input-placeholder {
    color:lightgrey;
+   font-size:16px;
 }
 
 /*  AMOUNT OF TODOS TODAY */
 #todosToday {
   font-family: 'Roboto', sans-serif;
-  font-size:9px;
+  font-size:14px;
   text-align:center;
   font-weight:lighter;
 }
@@ -101,6 +108,11 @@ input {
   margin-left:9px;
 }
 
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    width:33%;
+  }
 
+}
 
 
