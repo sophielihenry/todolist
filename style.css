@@ -108,19 +108,9 @@ input {
   margin-left:9px;
 }
 
-@media only screen and (min-width: 768px) {
-  .wrapper {
-    width:50%;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
- #todoItems li {
-  width:108% !important;
- }
-
-  #todoTextInput {
-  margin-right:200px;
+@media only screen and (min-width: 320px) {
+ #todoTextInput {
+  margin-right:15px;
  }
 }
 
@@ -134,12 +124,55 @@ input {
  }
 }
 
-@media only screen and (min-width: 320px) {
- #todoTextInput {
-  margin-right:15px;
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    width:50%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+ #todoItems li {
+  width:105% !important;
  }
 
+ #todoItems li {
+  margin-left:-33px;
+ }
+
+
+.fa-times:before {
+  font-size:15px;
 }
+
+
+.fa-check-circle:before {
+  font-size:25px;
+}
+
+.far {
+  font-size: 25px;
+}
+
+.fa-circle:before {
+  font-size: 25px;
+}
+
+
+
+
+
+}
+
+@media only screen and (min-width: 1024px) {
+ #todoItems li {
+  width:108%;
+ }
+
+  #todoTextInput {
+  margin-right:200px;
+ }
+}
+
 
 
 
