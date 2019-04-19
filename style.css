@@ -75,13 +75,6 @@
   font-weight:lighter;
 }
 
-/* PLEASE INPUT A VALUE */
-#noValue {
-  font-family: 'Roboto', sans-serif;
-  font-weight:bold;
-  text-align: center;
-}
-
 /* REMOVES BLUE BORDER FROM ADD TODO BAR */
 input {
   outline:none;
