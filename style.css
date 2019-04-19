@@ -90,22 +90,14 @@ input {
 }
 
 /* TOGGLE */
-.fas {
-  font-size: 10px;
+.fas, .far, .fa-circle:before, .fa-check-circle:before {
+  font-size: 20px;
   color: lightgrey;
   margin-left:9px;
 }
 
-.far {
-  font-size: 10px;
-  color: lightgrey
-  margin-left:9px;
-}
-
-.fa-circle:before {
-  font-size: 10px;
-  color: lightgrey;
-  margin-left:9px;
+.fa-times:before {
+  font-size:15px;
 }
 
 @media only screen and (min-width: 320px) {
@@ -124,46 +116,69 @@ input {
  }
 }
 
+@media only screen and (min-width: 500px) {
+   #todoTextInput {
+      margin-right: 190px;
+  }
+
+  .wrapper {
+    width:70%;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .wrapper {
+    width:73%;
+  }
+
+  #todoItems li {
+    width:107%;
+   }
+
+   #todoTextInput {
+      margin-right: 131px;
+  }
+}
+
+
 @media only screen and (min-width: 768px) {
   .wrapper {
-    width:50%;
+    width:60%;
+  }
+
+  #todoTextInput {
+    margin-right: 142px;
   }
 }
 
 @media only screen and (min-width: 1000px) {
- #todoItems li {
-  width:105% !important;
- }
+   .wrapper {
+    width:50%;
+   }
 
- #todoItems li {
-  margin-left:-33px;
- }
+   #todoItems li {
+    width:105% !important;
+   }
 
+   #todoItems li {
+    margin-left:-33px;
+   }
 
-.fa-times:before {
-  font-size:15px;
-}
-
-
-.fa-check-circle:before {
-  font-size:25px;
-}
-
-.far {
-  font-size: 25px;
-}
-
-.fa-circle:before {
-  font-size: 25px;
-}
+  .fa-times:before {
+    font-size:15px;
+  }
 
 
-
-
-
+  .fa-check-circle:before, .far, .fa-circle:before {
+    font-size:25px;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
+  .wrapper {
+    width:50%;
+   }
+
  #todoItems li {
   width:108%;
  }
