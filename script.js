@@ -130,7 +130,6 @@ view = {
     })
     // click to edit and enter to save
     const todoUl = document.querySelector('ul');
-
     todoUl.addEventListener('click', function(event) {
       const position = event.target.parentNode.id;
         if (event.target.tagName === 'INPUT') {
@@ -150,7 +149,5 @@ view = {
       });
     }
  }
-
-
 
 view.eventListeners()

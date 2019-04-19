@@ -1,14 +1,23 @@
+.wrapper {
+  width: 50%
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 /* heading */
-.todoListHeading {
+.heading {
   font-family: 'Roboto', sans-serif;
   font-weight:lighter;
   text-align:center;
-  font-size:4vw;
+  font-size:18px
 }
 
 /* TO DO BOX */
-#todoBox {
-  border: 1px solid lavender;
+#todoItems {
+  border:1px solid lightgrey;
   background: #fff;
   box-shadow:
     0 1px 1px rgba(0,0,0,0.15),
@@ -18,71 +27,55 @@
     0 20px 1px -9px rgba(0,0,0,0.15);
 }
 
-#todoBox li {
+#todoItems li {
   font-family: 'Roboto', sans-serif;
-  font-size: 2vw;
   padding: 1vw 0 0.5vw 0vw;
-  font-weight: lighter;
   list-style: none;
-  border-bottom: 1px solid lavender;
+  border-bottom: 0.5px solid lightgrey;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 31vw;
+  margin-left:-40px;
 }
 
 #todoTextInput {
-  margin-left: 4vw;
-  width: 29vw;
-  padding: 1.5vw 0 1.5vw 0vw;
   outline: none;
-  border: none;
-  font-size: 1.5vw;
+  font-size: 8px;
   font-weight: lighter;
-  color: darkorange;
   font-family: roboto;
 }
 
-.todoCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 #textInput {
-  width: 37vw;
-  height: 12vh;
-  font-size: 2vw;
+  height: 2rem;
+  font-size: 10px;
   font-weight: lighter;
   font-family: 'Roboto', sans-serif;
-  border: 2px solid lavender;
-  margin-bottom:-3vh;
+  border: 1px solid lightgrey;
+  margin-bottom: -17px;
 }
 
 /* ADD A TODO INPUT  */
 ::-webkit-input-placeholder {
    color:lightgrey;
-   font-size:2vw
-   font-weight:lighter;
-   padding-left:2vw;
 }
 
-/* AMOUNT OF TODOS TODAY */
+/*  AMOUNT OF TODOS TODAY */
 #todosToday {
   font-family: 'Roboto', sans-serif;
-  font-size:1.5vw;
+  font-size:9px;
   text-align:center;
   font-weight:lighter;
 }
 
-/* REMOVES BLUE BORDER FROM ADD TODO BAR */
+ /* REMOVES BLUE BORDER FROM ADD TODO BAR */
 input {
   outline:none;
 }
 
-/* DELETE BUTTON */
+ /* DELETE BUTTON */
 .deleteButton {
   border-color: white;
+  background-color: white;
 }
 
 .editButton {
@@ -91,22 +84,23 @@ input {
 
 /* TOGGLE */
 .fas {
-  font-size: 2vw;
-  color: lavender;
+  font-size: 10px;
+  color: lightgrey;
+  margin-left:9px;
 }
 
 .far {
-  font-size: 2vw;
-  color: lavender
+  font-size: 10px;
+  color: lightgrey
+  margin-left:9px;
 }
 
-/* FOOTER */
-.footer {
-  text-align: center;
-  font-family: 'roboto';
-  font-size: 13px;
-  margin-top: 73px;
+.fa-circle:before {
+  font-size: 10px;
+  color: lightgrey;
+  margin-left:9px;
 }
+
 
 
 

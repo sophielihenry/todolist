@@ -2,28 +2,24 @@
 <html>
 <head>
   <title>Todo list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
 </head>
 
   <body>
-    <h1 class="todoListHeading">Todo List</h1>
-      <div class="todoCard">
-  <!--<div onclick="todoList.toggleAll()" class="toggleAll">toggle all</div> -->
-        <div id="todoBoxContainer">
-          <div class="addTodoBar">
-            <input type="text" id='textInput' placeholder="What needs to be done today?" onkeyup="todoList.addTodos(event)">
-          </div>
-          <ul id=todoBox></ul>
+    <div class="wrapper">
+      <h1 class="heading">Todo List</h1>
+        <div class="container">
+              <input type="text" id='textInput' placeholder="What needs to be done today?" onkeyup="todoList.addTodos(event)">
+            <ul id=todoItems></ul>
         </div>
-      </div>
-      <p id="todosToday"></p>
-
-   <!--    <footer>
-        <p class="footer">created with vanilla javascript</p>
-      </footer> -->
-
-    <script src=script.js ></script>
+        <p id="todosToday"></p>
+      <script src=script.js ></script>
+    </div>
   </body>
 </html>
+
+
+    <!--<div onclick="todoList.toggleAll()" class="toggleAll">toggle all</div> -->
