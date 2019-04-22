@@ -60,12 +60,14 @@
   font-family: 'Roboto', sans-serif;
   border: 1px solid lightgrey;
   margin-bottom: -17px;
+  padding-left:2%;
 }
 
-/* ADD A TODO INPUT  */
-::-webkit-input-placeholder {
+/* placeholder  */
+::placeholder {
    color:lightgrey;
    font-size:16px;
+   text-align: left;
 }
 
 /*  AMOUNT OF TODOS TODAY */
