@@ -1,5 +1,5 @@
 .wrapper {
-  width: 450px;
+  width: 400px;
 }
 
 .body {
@@ -50,11 +50,11 @@
   font-size: 16px;
   font-weight: lighter;
   font-family: roboto;
-  border: 4px solid white;
+  border: none;
   width:80%;
   background-color:white;
-  color: #000000;
-  -webkit-text-fill-color:#000000;
+  color: #313639;
+  -webkit-text-fill-color:#313639;
   -webkit-opacity: 1;
   background: white;
 }
@@ -86,9 +86,19 @@
   color:#313639;
 }
 
- /* REMOVES BLUE BORDER FROM ADD TODO BAR */
+ /* REMOVES BORDERS FROM INPUT BARS */
+input:focus {
+  outline:none;
+}
+
 input {
   outline:none;
+}
+
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
  /* DELETE BUTTON */
