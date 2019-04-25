@@ -99,11 +99,11 @@ view = {
     })
     const todosToday = document.getElementById('todosToday')
     if (completedTodos > 1) {
-      todosToday.textContent = `you have ${completedTodos} tasks to complete today`
+      todosToday.textContent = `You have ${completedTodos} tasks to complete today`
     } else if (completedTodos === 1) {
-      todosToday.textContent = 'you have 1 more task to complete today'
+      todosToday.textContent = 'You have 1 task to complete today'
     } else {
-      todosToday.textContent = 'congratulations! you have no tasks to complete!'
+      todosToday.textContent = 'Congratulations! You have no tasks to complete!'
     }
   },
   createDeleteButton() {
