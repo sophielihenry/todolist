@@ -18,6 +18,7 @@
   font-weight:lighter;
   text-align:center;
   font-size:23px;
+  color: #313639;
 }
 
 /* TO DO BOX */
@@ -51,6 +52,7 @@
   border: 1px solid white;
   width:80%;
   background-color:white;
+  color: #313639;
 }
 
 #textInput {
@@ -77,6 +79,7 @@
   font-size:14px;
   text-align:center;
   font-weight:lighter;
+  color:#313639;
 }
 
  /* REMOVES BLUE BORDER FROM ADD TODO BAR */
