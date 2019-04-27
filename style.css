@@ -13,11 +13,11 @@
 }
 
 /* heading */
-.heading {
+  header {
   font-family: 'Roboto', sans-serif;
   font-weight:lighter;
   text-align:center;
-  font-size:23px;
+  font-size:30px;
   color: #313639;
 }
 
@@ -47,7 +47,7 @@
 
 #todoTextInput {
   outline: none !important;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: lighter;
   font-family: roboto;
   border: none;
@@ -61,7 +61,7 @@
 
 #textInput {
   height: 40px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: lighter;
   font-family: 'Roboto', sans-serif;
   border: 1px solid lightgrey;
@@ -74,7 +74,7 @@
 /* placeholder  */
 ::placeholder {
    color:#313639;
-   font-size:16px;
+   font-size:18px;
    text-align: left;
 }
 
